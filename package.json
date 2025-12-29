@@ -5,7 +5,7 @@
   "main": "index.html",
   "scripts": {
     "build": "npx tailwindcss -i ./src/input.css -o ./dist/output.css",
-    "start": "npx serve ."
+    "start": "serve -s . -l $PORT"
   },
   "dependencies": {
     "serve": "^14.2.0"
