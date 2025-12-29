@@ -1,5 +1,16 @@
 {
+  "name": "xaydung-net-sota-group",
+  "version": "1.0.0",
+  "description": "Dự án xây dựng mạng đấu thầu",
+  "main": "index.html",
+  "scripts": {
+    "build": "npx tailwindcss -i ./src/input.css -o ./dist/output.css",
+    "start": "npx serve ."
+  },
+  "dependencies": {
+    "serve": "^14.2.0"
+  },
   "devDependencies": {
-    "tailwindcss": "3.4"
+    "tailwindcss": "^3.4.0"
   }
 }
