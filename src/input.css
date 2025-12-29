@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.runner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: 999px;
+  background: #2d9afe;
+
+  offset-path: path("M 100 175 H 250 V 355 H 450 V 95 H 650 V 355 H 850 V 175 H 1050 V 355");
+  offset-rotate: 0deg;
+
+  animation: moveOnPath 18s linear infinite;
+}
+
+@keyframes moveOnPath {
+  0%      { offset-distance: 0%; }
+  70%     { offset-distance: 100%; }
+  85%     { offset-distance: 100%; }
+  85.01%  { offset-distance: 0%; }
+  100%    { offset-distance: 0%; }
+}
+
+.progress-path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: drawPath 18s linear infinite;
+}
+
+@keyframes drawPath {
+  0%   { stroke-dashoffset: 1; }
+  70%  { stroke-dashoffset: 0; }
+  85%  { stroke-dashoffset: 0; }
+  85.01% { stroke-dashoffset: 1; }
+  100% { stroke-dashoffset: 1; }
+}
