@@ -11,18 +11,30 @@
   border-radius: 999px;
   background: #2d9afe;
 
-  offset-path: path("M 100 175 H 250 V 355 H 450 V 95 H 650 V 355 H 850 V 175 H 1050 V 355");
+  offset-path: path(
+    "M 100 175 H 250 V 355 H 450 V 95 H 650 V 355 H 850 V 175 H 1050 V 355"
+  );
   offset-rotate: 0deg;
 
   animation: moveOnPath 18s linear infinite;
 }
 
 @keyframes moveOnPath {
-  0%      { offset-distance: 0%; }
-  70%     { offset-distance: 100%; }
-  85%     { offset-distance: 100%; }
-  85.01%  { offset-distance: 0%; }
-  100%    { offset-distance: 0%; }
+  0% {
+    offset-distance: 0%;
+  }
+  70% {
+    offset-distance: 100%;
+  }
+  85% {
+    offset-distance: 100%;
+  }
+  85.01% {
+    offset-distance: 0%;
+  }
+  100% {
+    offset-distance: 0%;
+  }
 }
 
 .progress-path {
@@ -32,9 +44,28 @@
 }
 
 @keyframes drawPath {
-  0%   { stroke-dashoffset: 1; }
-  70%  { stroke-dashoffset: 0; }
-  85%  { stroke-dashoffset: 0; }
-  85.01% { stroke-dashoffset: 1; }
-  100% { stroke-dashoffset: 1; }
+  0% {
+    stroke-dashoffset: 1;
+  }
+  70% {
+    stroke-dashoffset: 0;
+  }
+  85% {
+    stroke-dashoffset: 0;
+  }
+  85.01% {
+    stroke-dashoffset: 1;
+  }
+  100% {
+    stroke-dashoffset: 1;
+  }
+}
+
+@media (max-width: 1024px) {
+  .runner {
+    offset-path: path(
+      "M 80 183 H 225 V 345 H 405 V 110 H 585 V 345 H 765 V 185 H 945 V 345"
+    );
+    animation: moveOnPath 18s linear infinite;
+  }
 }
