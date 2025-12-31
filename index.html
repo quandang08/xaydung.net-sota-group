@@ -11,8 +11,8 @@
 
 <body class="w-full bg-white font-sans text-gray-900">
     <header class="bg-white shadow-sm">
-        <div class="max-w-[1200px] mx-auto py-6 flex items-center gap-3 ">
-            <div class="w-[55%] flex justify-between items-center lg-max:gap-100">
+        <div class="max-w-[1200px] mx-auto py-6 flex items-center gap-3 lg-max:gap-0">
+            <div class="w-[55%] lg-max:w-fit flex justify-between items-center lg-max:justify-start lg-max:gap-2">
 
                 <!-- Facebook -->
                 <div class="bg-neutral-400 group h-16 w-36 flex items-center justify-center shrink-0">
@@ -52,7 +52,7 @@
 
 
                 <!-- React -->
-                <div class="group bg-neutral-400 h-16 w-36 flex items-center justify-center shrink-0">
+                <div class="group bg-neutral-400 h-16 w-36 flex items-center justify-center shrink-0 lg-max:hidden">
                     <div
                         class="h-12 w-12 flex items-center justify-center rounded-full bg-gray-100 group-hover:bg-gray-200 transition">
                         <svg class="w-7 h-7 text-gray-500 group-hover:text-[#61DAFB] transition-colors duration-200"
@@ -109,9 +109,12 @@
 
         <div class="w-full bg-[#14212A]">
             <nav class="max-w-[1200px] mx-auto flex justify-between">
+                <button id="openMenu" class="hidden lg-max:flex items-center gap-2 text-white px-3 h-16">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
 
                 <ul class="flex items-center overflow-visible text-[13px]
-                text-white font-bold uppercase">
+                text-white font-bold uppercase lg-max:hidden">
 
                     <li class="relative group shrink-0 h-full">
                         <a href="#" class="flex items-center px-4 h-full transition 
@@ -211,7 +214,7 @@
                 </ul>
 
                 <!-- SEARCH -->
-                <div class="py-3">
+                <div class="py-3 lg-max:hidden">
                     <div class="relative w-[170px]">
                         <i data-lucide="search"
                             class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"></i>
@@ -659,7 +662,7 @@
 
     </main>
 
-    <footer class="bg-[#181B2A] text-gray-400 font-sans pt-16">
+    <footer class="bg-[#181B2A] text-gray-400 font-sans pt-16 overflow-hidden relative">
         <div class="container mx-auto max-w-[1200px]">
 
             <div class="flex flex-col lg:flex-row justify-between items-start
@@ -917,18 +920,18 @@
 
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-[400px_300px_400px] gap-10 text-[14px] text-gray-200 max-w-[1200px]
-        pt-4 mx-auto border-t border-[#0C0D15]">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-y-10 lg:gap-x-10 text-[14px] text-gray-200
+            max-w-[1200px] pt-8 mx-auto border-t border-[#0C0D15]">
 
-            <!-- CỘT 1 -->
-            <div class="space-y-3 leading-relaxed">
+            <div class="lg:col-span-4 space-y-4 leading-relaxed">
                 <h5 class="text-[#00aeef] font-bold flex items-center gap-2 uppercase text-[17px]">
                     <span class="bg-[#00aeef] text-white px-1.5 py-0.5 rounded text-xs">D</span>
                     Hệ sinh thái Đấu Thầu
                 </h5>
 
                 <div class="space-y-1">
-                    <p>Vận hành bởi: <b class="text-white">Công ty cổ phần Hệ sinh thái Đấu Thầu (HSTDT.,JSC)</b></p>
+                    <p>Vận hành bởi: <br> <b class="text-white">Công ty cổ phần Hệ sinh thái Đấu Thầu (HSTDT.,JSC)</b>
+                    </p>
                     <p>Địa chỉ: Tầng 6, tòa nhà Sông Đà, Số 131 Trần Phú, Phường Văn Quán, Quận Hà Đông, Thành phố Hà
                         Nội</p>
                     <p>Hotline: 0904.634.288 hoặc 024.8888.4288</p>
@@ -936,8 +939,8 @@
                 </div>
             </div>
 
-            <!-- CỘT 2 -->
-            <div class="space-y-2 leading-relaxed">
+            <div
+                class="lg:col-span-3 space-y-3 leading-relaxed border-t lg:border-t-0 pt-6 lg:pt-0 border-gray-800 lg:border-none">
                 <p class="text-[#00aeef] font-bold text-xl leading-none">
                     NUKEVIET<span class="text-white">CMS</span>
                 </p>
@@ -945,51 +948,50 @@
                 <p class="italic">
                     Powered by NukeViet. <br>
                     Sản phẩm đạt giải <span class="font-bold">Nhân tài đất Việt 2011</span> & được quy định ưu tiên mua
-                    sắm
-                    trong cơ quan nhà nước theo <span class="font-bold">Thông tư 20/2014/TT-BTTTT</span>.
+                    sắm trong cơ quan nhà nước.
                 </p>
             </div>
 
-            <!-- CỘT 3 -->
-            <div class="flex items-start">
-                <div class="flex flex-wrap gap-2 font-medium text-[14px]">
-                    <a href="#" class="hover:text-white">Yêu cầu</a> <span>|</span>
-                    <a href="#" class="hover:text-white">Cam kết</a> <span>|</span>
-                    <a href="#" class="hover:text-white">Chính sách</a> <span>|</span>
-                    <a href="#" class="hover:text-white">Điều khoản</a> <span>|</span>
-                    <a href="#" class="hover:text-white">Bản quyền</a>
+            <div class="lg:col-span-5 flex flex-col items-start lg:items-start gap-4 border-t 
+            lg:border-t-0 pt-6 lg:pt-0 border-gray-800 lg:border-none">
+                <div class="flex flex-wrap gap-x-2 gap-y-1 font-normal text-[14px] lg-max:justify-start">
+                    <a href="#" class="hover:text-white text-[16px]">Yêu cầu</a> <span>|</span>
+                    <a href="#" class="hover:text-white text-[16px]">Cam kết</a> <span>|</span>
+                    <a href="#" class="hover:text-white text-[16px]">Chính sách</a> <span>|</span>
+                    <a href="#" class="hover:text-white text-[16px]">Điều khoản</a> <span>|</span>
+                    <a href="#" class="hover:text-white text-[16px]">Bản quyền</a>
                 </div>
             </div>
 
-            <div class="w-[1200px] border-t border-[#0C0D15]">
-                <div class="ml-20 flex gap-3 pt-4 pb-2 col-span-full">
-
-                    <button class="flex items-center gap-2 px-5 py-2 border border-gray-500 rounded-md 
-                        text-[15px] font-medium hover:bg-gray-700 transition-colors">
+            <div class="col-span-full border-t border-[#0C0D15] ">
+                <div class="ml-10 flex flex-wrap gap-4 pt-4 pb-6">
+                    <button class="flex items-center gap-2 px-6 py-2 border border-gray-500 rounded-md text-[15px]
+                    font-medium hover:bg-gray-700 transition-all">
                         <i data-lucide="qr-code" class="w-4 h-4"></i>
                         QR-code
                     </button>
 
-                    <button class="flex items-center gap-2 px-5 py-2 border border-gray-500 rounded-md text-[sm]
-                        font-medium hover:bg-gray-700 transition-colors">
+                    <button class="flex items-center gap-2 px-6 py-2 border border-gray-500 rounded-md text-[15px]
+                    font-medium hover:bg-gray-700 transition-all">
                         <i data-lucide="monitor" class="w-4 h-4"></i>
                         Tự động
                     </button>
-
                 </div>
-            </div>
 
+            </div>
         </div>
 
-        <button class="fixed bottom-6 right-6 w-10 h-10 bg-gray-800/80 text-white rounded flex items-center
-            justify-center hover:bg-[#D00A2B] transition-colors z-50">
+        <button id="backTop" class="fixed bottom-6 right-6 w-10 h-10 bg-gray-800/80 text-white rounded flex items-center
+        justify-center hover:bg-[#D00A2B] transition-all z-50 opacity-0 pointer-events-none">
             <i data-lucide="chevron-up" class="w-6 h-6"></i>
         </button>
+
     </footer>
 
     <script>
         lucide.createIcons();
     </script>
+    <script src="src/main.js"></script>
 </body>
 
 </html>
