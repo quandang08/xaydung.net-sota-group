@@ -16,3 +16,16 @@ backTop.addEventListener("click", () => {
     behavior: "smooth",
   });
 });
+
+const logoutWrapper = document.getElementById("logoutWrapper");
+const logoutDropdown = document.getElementById("logoutDropdown");
+
+logoutWrapper.addEventListener("click", () => {
+  logoutDropdown.classList.toggle("hidden");
+});
+
+document.addEventListener("click", (e) => {
+  if (!logoutWrapper.contains(e.target)) {
+    logoutDropdown.classList.add("hidden");
+  }
+});
