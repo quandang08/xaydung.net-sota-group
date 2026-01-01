@@ -1,5 +1,15 @@
 const backTop = document.getElementById("backTop");
 
+const btn = document.getElementById('logoutBtn');
+const dropdown = document.getElementById('logoutDropdown');
+
+btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    dropdown.classList.toggle('hidden');
+});
+
+// Click ra ngoài thì đóng menu
+document.addEventListener('click', () => dropdown.classList.add('hidden'));
 // Ẩn / hiện theo vị trí cuộn
 window.addEventListener("scroll", () => {
   if (window.scrollY > 200) {
