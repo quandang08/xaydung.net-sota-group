@@ -29,3 +29,25 @@ document.addEventListener("click", (e) => {
     logoutDropdown.classList.add("hidden");
   }
 });
+
+// Xử lý đóng/mở menu mobile
+document.addEventListener('DOMContentLoaded', () => {
+    const openBtn = document.getElementById('open-mobile-menu');
+    const closeBtn = document.getElementById('close-mobile-menu');
+    const drawer = document.getElementById('mobile-drawer');
+    const overlay = document.getElementById('mobile-overlay');
+
+    function openMenu() {
+        drawer.classList.remove('-translate-x-full');
+        overlay.classList.remove('hidden');
+    }
+
+    function closeMenu() {
+        drawer.classList.add('-translate-x-full');
+        overlay.classList.add('hidden');
+    }
+
+    if(openBtn) openBtn.addEventListener('click', openMenu);
+    if(closeBtn) closeBtn.addEventListener('click', closeMenu);
+    if(overlay) overlay.addEventListener('click', closeMenu);
+});

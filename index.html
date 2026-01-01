@@ -12,10 +12,10 @@
 <body class="w-full bg-white font-sans text-gray-900">
     <header class="bg-white shadow-sm">
         <div class="w-full max-w-[1200px] py-6 flex items-center gap-0 mx-auto 
-         lg:gap-3">
+         lg:gap-3 sm-max:hidden">
 
             <div class="w-[55%] flex justify-between items-center lg-max:max-w-[400px]
-            lg-max:justify-center lg-max:gap-2 lg-max:pl-2">
+            lg-max:justify-center lg-max:gap-2 lg-max:pl-2 ">
 
                 <!-- Facebook -->
                 <div class="bg-neutral-400 group h-16 w-36 flex items-center justify-center shrink-0">
@@ -158,14 +158,14 @@
             </div>
         </div>
 
-        <div class="w-full bg-[#14212A]">
-            <nav class="max-w-[1200px] mx-auto flex justify-between">
-                <button id="openMenu" class="hidden lg-max:flex items-center gap-2 text-white px-3 h-16">
+        <div class="w-full bg-[#14212A] sticky top-0 z-50">
+            <nav class="max-w-[1200px] mx-auto flex justify-between h-14 items-center">
+
+                <button id="open-mobile-menu" class="lg:hidden text-white p-2">
                     <i data-lucide="menu" class="w-6 h-6"></i>
                 </button>
 
-                <ul class="flex items-center overflow-visible text-[13px]
-                text-white font-bold uppercase lg-max:hidden">
+                <ul class="hidden lg:flex items-center text-[13px] text-white font-bold uppercase h-full">
 
                     <li class="relative group shrink-0 h-full">
                         <a href="#" class="flex items-center px-4 h-full transition 
@@ -174,7 +174,7 @@
                         </a>
                     </li>
 
-                    <li class="relative group shrink-0 h-full">
+                    <li class="relative group h-full flex items-center">
                         <a href="#"
                             class="flex items-center px-4 py-2 h-full transition group-hover:bg-[#E43959] group-hover:text-white">
                             Giới thiệu
@@ -186,27 +186,11 @@
                             <li><a class="block px-4 py-2 hover:bg-[#E43959] hover:text-white">Mục con 2</a></li>
                             <li><a class="block px-4 py-2 hover:bg-[#E43959] hover:text-white">Mục con 3</a></li>
                         </ul>
-
                     </li>
-
                     <li class="relative group shrink-0 h-full">
                         <a href="#"
                             class="flex items-center px-4 py-2 h-full transition group-hover:bg-[#E43959] group-hover:text-white">
                             Dự án thầu
-                        </a>
-
-                        <ul class="absolute left-0 top-full w-64 bg-white font-medium text-black shadow-lg border z-50
-                        divide-y divide-gray-200 hidden group-hover:block">
-                            <li><a class="block px-4 py-2 hover:bg-[#E43959] hover:text-white">Mục con 1</a></li>
-                            <li><a class="block px-4 py-2 hover:bg-[#E43959] hover:text-white">Mục con 2</a></li>
-                            <li><a class="block px-4 py-2 hover:bg-[#E43959] hover:text-white">Mục con 3</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="relative group shrink-0 h-full">
-                        <a href="#"
-                            class="flex items-center px-4 py-2 h-full transition group-hover:bg-[#E43959] group-hover:text-white">
-                            Nhà thầu xây dựng
                         </a>
 
                         <ul class="absolute left-0 top-full w-64 bg-white font-medium text-black shadow-lg border z-50
@@ -242,7 +226,6 @@
                             <li><a class="block px-4 py-2 hover:bg-[#E43959] hover:text-white">Mục con 3</a></li>
                         </ul>
                     </li>
-
                     <li class="relative group shrink-0 h-full">
                         <a href="#"
                             class="flex items-center px-4 py-2 h-full transition group-hover:bg-[#E43959] group-hover:text-white">Tin
@@ -254,28 +237,94 @@
                             <li><a class="block px-4 py-2 hover:bg-[#E43959] hover:text-white">Mục con 3</a></li>
                         </ul>
                     </li>
-
                     <li class="relative group shrink-0 h-full">
                         <a href="#"
                             class="flex items-center px-4 py-2 h-full transition group-hover:bg-[#E43959] group-hover:text-white">Liên
                             hệ
                         </a>
                     </li>
-
                 </ul>
 
-                <!-- SEARCH -->
-                <div class="py-3 lg-max:hidden">
-                    <div class="relative w-[170px]">
-                        <i data-lucide="search"
-                            class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"></i>
-
-                        <input type="text" class="w-full h-[20px] pl-9 pr-4 py-2 rounded border border-gray-300 shadow-sm
+                <div class="hidden lg:block relative w-[170px] px-2">
+                    <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"></i>
+                    <input type="text" class="w-full h-[20px] pl-9 pr-4 py-2 rounded border border-gray-300 shadow-sm
                                   focus:outline-none focus:ring-2" />
-                    </div>
                 </div>
 
+                <div class="lg:hidden text-white font-bold px-4">
+                    XAYDUNG.NET
+                </div>
             </nav>
+        </div>
+
+        <div id="mobile-overlay" class="fixed inset-0 bg-black/50 z-[60] hidden transition-opacity"></div>
+
+        <div id="mobile-drawer"
+            class="fixed top-0 left-0 w-[280px] h-full bg-[#14212A] z-[70] transform -translate-x-full transition-transform duration-300 overflow-y-auto">
+
+            <div class="flex items-center justify-between p-4 border-b border-gray-700">
+                <span class="text-white font-bold text-lg">MENU</span>
+                <button id="close-mobile-menu" class="text-white p-1 hover:bg-white/10 rounded">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+
+            <div class="p-4">
+                <div class="relative">
+                    <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"></i>
+                    <input type="text"
+                        class="w-full pl-9 pr-4 py-2 rounded bg-[#0C1419] text-white border border-gray-700 focus:outline-none focus:border-[#E43959]"
+                        placeholder="Tìm kiếm...">
+                </div>
+            </div>
+
+            <ul class="text-white font-bold uppercase text-[14px]">
+
+                <li>
+                    <a href="#" class="block px-5 py-3 border-b border-gray-800 hover:text-[#E43959]">
+                        <i data-lucide="house" class="w-4 h-4 inline mr-2"></i> Trang chủ
+                    </a>
+                </li>
+
+                <li class="border-b border-gray-800">
+                    <details class="group">
+                        <summary
+                            class="px-5 py-3 flex justify-between items-center cursor-pointer hover:text-[#E43959] list-none">
+                            Giới thiệu
+                            <i data-lucide="chevron-down"
+                                class="w-4 h-4 transition-transform group-open:rotate-180"></i>
+                        </summary>
+                        <ul class="bg-[#0C1419] text-gray-300 text-[13px] normal-case font-normal">
+                            <li><a href="#"
+                                    class="block px-8 py-2.5 hover:text-white border-l-2 border-transparent hover:border-[#E43959]">Về
+                                    chúng tôi</a></li>
+                            <li><a href="#"
+                                    class="block px-8 py-2.5 hover:text-white border-l-2 border-transparent hover:border-[#E43959]">Cơ
+                                    cấu tổ chức</a></li>
+                            <li><a href="#"
+                                    class="block px-8 py-2.5 hover:text-white border-l-2 border-transparent hover:border-[#E43959]">Đối
+                                    tác</a></li>
+                        </ul>
+                    </details>
+                </li>
+
+                <li class="border-b border-gray-800">
+                    <details class="group">
+                        <summary
+                            class="px-5 py-3 flex justify-between items-center cursor-pointer hover:text-[#E43959] list-none">
+                            Dự án thầu
+                            <i data-lucide="chevron-down"
+                                class="w-4 h-4 transition-transform group-open:rotate-180"></i>
+                        </summary>
+                        <ul class="bg-[#0C1419] text-gray-300 text-[13px] normal-case font-normal">
+                            <li><a href="#" class="block px-8 py-2.5 hover:text-white">Thông báo mời thầu</a></li>
+                            <li><a href="#" class="block px-8 py-2.5 hover:text-white">Kế hoạch lựa chọn</a></li>
+                        </ul>
+                    </details>
+                </li>
+
+                <li><a href="#" class="block px-5 py-3 border-b border-gray-800 hover:text-[#E43959]">Liên hệ</a></li>
+            </ul>
         </div>
     </header>
 
