@@ -45,8 +45,6 @@
                 <div id="logoutWrapper" class="relative hidden h-16 w-36 items-center justify-center shrink-0 
                 lg-max:flex lg-max:w-16 md-max:w-12 cursor-pointer">
 
-                   
-
                     <div class="relative inline-block">
                         <button id="logoutBtn" class="p-2">
                             <i data-lucide="log-out"></i>
@@ -419,27 +417,23 @@
             </div>
 
             <div class="container mx-auto px-4 relative z-10">
-                <h2 class="text-center text-[#D00A2B] text-4xl font-extrabold uppercase mb-4 tracking-tighter">
+                <h2 class="text-center text-[#D00A2B] text-4xl font-extrabold uppercase mb-4 tracking-tighter
+                sm-max:text-3xl">
                     Quy trình đấu thầu
                 </h2>
 
-                <div class="relative max-w-[1100px] mx-auto h-[500px]">
-                    <svg class="absolute top-0 left-0 w-full h-full pointer-events-none" viewBox="0 0 1100 450"
-                        fill="none">
-
-                        <!-- đỏ -->
+                <div class="relative max-w-[1100px] mx-auto h-[500px] sm-max:hidden">
+                    <svg class="sm-max:hidden block absolute top-0 left-0 w-full h-full pointer-events-none"
+                        viewBox="0 0 1100 450" fill="none">
                         <path d="M 100 150 H 250 V 330 H 450 V 70 H 650 V 330 H 850 V 150 H 1050 V 330" stroke="#FD3666"
                             stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
 
-                        <!-- xanh -->
                         <path class="progress-path"
                             d="M 100 150 H 250 V 330 H 450 V 70 H 650 V 330 H 850 V 150 H 1050 V 330" stroke="#2D9AFE"
                             stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" pathLength="1" />
-
                     </svg>
 
-                    <!-- Runner -->
-                    <div class="runner"></div>
+                    <div class="runner sm-max:hidden block"></div>
 
                     <div class="absolute top-[105px] left-0 flex flex-col gap-1 w-[100px] lg-max:w-[80px]">
                         <div class="shrink-0">
@@ -512,6 +506,60 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- MOBILE VERSION -->
+                <div class="hidden sm-max:grid grid-cols-2 gap-6 px-4 mt-6 text-center">
+
+                    <div class="flex flex-col items-center gap-2">
+                        <i data-lucide="user-plus" class="w-10 h-10 text-gray-700"></i>
+                        <p class="font-bold">Bước 1</p>
+                        <span class="text-sm font-semibold text-gray-700">
+                            Đăng ký tài khoản (dùng chung cho toàn hệ thống)
+                        </span>
+                    </div>
+
+                    <div class="flex flex-col items-center gap-2">
+                        <i data-lucide="folder-plus" class="w-10 h-10 text-gray-700"></i>
+                        <p class="font-bold">Bước 2</p>
+                        <span class="text-sm font-semibold text-gray-700">
+                            Khởi tạo và xác thực hồ sơ bên mời thầu
+                        </span>
+                    </div>
+
+                    <div class="flex flex-col items-center gap-2">
+                        <i data-lucide="cloud-upload" class="w-10 h-10 text-gray-700"></i>
+                        <p class="font-bold">Bước 3</p>
+                        <span class="text-sm font-semibold text-gray-700">
+                            Mời thầu, hoặc Mời báo giá cạnh tranh
+                        </span>
+                    </div>
+
+                    <div class="flex flex-col items-center gap-2">
+                        <i data-lucide="gavel" class="w-10 h-10 text-gray-700"></i>
+                        <p class="font-bold">Bước 4</p>
+                        <span class="text-sm font-semibold text-gray-700">
+                            Đấu thầu (online hoặc offline)
+                        </span>
+                    </div>
+
+                    <div class="flex flex-col items-center gap-2">
+                        <i data-lucide="users" class="w-10 h-10 text-gray-700"></i>
+                        <p class="font-bold">Bước 5</p>
+                        <span class="text-sm font-semibold text-gray-700">
+                            Thương thảo hợp đồng (offline)
+                        </span>
+                    </div>
+
+                    <div class="flex flex-col items-center gap-2">
+                        <i data-lucide="handshake" class="w-10 h-10 text-gray-700"></i>
+                        <p class="font-bold">Bước 6</p>
+                        <span class="text-sm font-semibold text-gray-700">
+                            Ký kết hợp đồng (offline)
+                        </span>
+                    </div>
+
+                </div>
+
             </div>
         </section>
 
