@@ -7,6 +7,7 @@
     <title>Xây Dựng Thầu - Hệ thống săn tin thầu công trình</title>
     <link href="./dist/output.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
@@ -300,16 +301,38 @@
     </header>
 
     <main>
-        <section class="hero relative text-white bg-[url('/assets/images/hero.jpg')] bg-cover bg-center h-[450px]
-            flex flex-col justify-center items-center">
+        <section class="hero relative h-[500px] overflow-hidden">
+            <div class="swiper mySwiper h-full w-full">
+                <div class="swiper-wrapper">
 
-            <div class="absolute inset-0 bg-black/40 z-0"></div>
+                    <div class="swiper-slide relative flex items-center justify-center text-white">
+                        <div class="absolute inset-0 bg-[url('/assets/images/hero.jpg')] bg-cover bg-center"></div>
+                        <div class="absolute inset-0 bg-black/40 z-0"></div>
+                        <div class="container mx-auto px-4 z-10 text-center flex flex-col items-center mt-32">
+                            <h2 class="text-4xl font-bold mb-4 slide-title">KIẾN TẠO KHÔNG GIAN</h2>
+                            <button
+                                class="bg-[#E43959] text-white text-[15px] px-6 py-3 rounded-xl shadow-lg
+                                mt-20 hover:bg-[#AD0928] transition-all uppercase">
+                                Xem dự án
+                            </button>
+                        </div>
+                    </div>
 
-            <div class="container mx-auto px-4 z-10 text-center flex flex-col items-center mt-52">
-                <button class="bg-[#E43959] text-white text-[15px] font-normal px-3 py-2 rounded-xl shadow-lg hover:bg-[#AD0928]
-                    hover:scale-105 transition-all uppercase tracking-wider">
-                    Xem thêm
-                </button>
+                    <div class="swiper-slide relative flex items-center justify-center text-white">
+                        <div class="absolute inset-0 bg-[url('/assets/images/hero-2.jpg')] bg-cover bg-center"></div>
+                        <div class="absolute inset-0 bg-black/40 z-0"></div>
+                        <div class="container mx-auto px-4 z-10 text-center flex flex-col items-center mt-32">
+                            <h2 class="text-4xl font-bold mb-4 slide-title">XÂY DỰNG VỮNG BỀN</h2>
+                            <button
+                                class="bg-[#E43959] text-white text-[15px] px-6 py-3 rounded-xl shadow-lg
+                                mt-20 hover:bg-[#AD0928] transition-all uppercase">
+                                Xem bảng giá
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="swiper-pagination"></div>
             </div>
         </section>
 
@@ -788,6 +811,7 @@
 
     <div id="footer-placeholder"></div>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -804,26 +828,55 @@
 
         if (!topHeader || !mainNav) return;
 
-        // Lấy chiều cao của phần Top Header (khoảng trắng chứa logo/mạng xã hội)
         const topHeaderHeight = topHeader.offsetHeight;
 
         ScrollTrigger.create({
-            // Kích hoạt khi cạnh trên của trang cuộn qua hết chiều cao của Top Header
+
             start: `top+=${topHeaderHeight} top`,
             onEnter: () => {
-                // Khi cuộn xuống: Thêm class fixed và hiệu ứng
                 mainNav.classList.add("sticky-active");
-                // Thêm padding cho body để bù đắp khoảng trống Nav để lại, tránh giật trang
                 document.body.style.paddingTop = `${mainNav.offsetHeight}px`;
             },
             onLeaveBack: () => {
-                // Khi cuộn ngược lên trên cùng: Trả về trạng thái cũ
                 mainNav.classList.remove("sticky-active");
                 document.body.style.paddingTop = "0";
             }
         });
     }
 
-    // Chạy hàm khởi tạo
     window.addEventListener("load", initStickyNav);
+</script>
+
+<script>
+    const swiper = new Swiper(".mySwiper", {
+        loop: true,
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        on: {
+            init: function () {
+                animateSlideContent();
+            },
+            slideChangeTransitionStart: function () {
+                animateSlideContent();
+            }
+        }
+    });
+
+    function animateSlideContent() {
+        gsap.fromTo(".swiper-slide-active .slide-title",
+            { y: 50, opacity: 0 },
+            { y: 0, opacity: 1, duration: 3, ease: "power4.out", delay: 0.4 }
+        );
+
+        gsap.fromTo(".swiper-slide-active button",
+            { scale: 0.8, opacity: 0 },
+            { scale: 1, opacity: 1, duration: 0.8, ease: "back.out(1.7)", delay: 0.6 }
+        );
+    }
 </script>

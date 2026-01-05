@@ -21,6 +21,16 @@
   }
 }
 
+.swiper-pagination-bullet {
+    background: #ffffff !important;
+    opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+    background: #ffffff !important;
+    opacity: 1 !important;
+}
+
 .runner {
   position: absolute;
   top: 0;
