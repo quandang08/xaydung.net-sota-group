@@ -1,6 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./*.html"],
+  content: [
+    "./src/**/*.{html,js}", 
+    "./*.html"
+  ],
   theme: {
     screens: {
       sm: "480px",
@@ -8,7 +11,6 @@ module.exports = {
       lg: "1024px",
       xl: "1280px",
       "2xl": "1440px",
-
       "2xl-max": { max: "1440px" },
       "xl-max":  { max: "1280px" },
       "lg-max":  { max: "1024px" },
@@ -16,7 +18,6 @@ module.exports = {
       "sm-max":  { max: "480px"  },
       "ipad-max": { max: "820px" },
     },
-
     extend: {
       colors: {
         "xd-yellow": "#F2B900",
