@@ -301,7 +301,7 @@
     </header>
 
     <main>
-        <section class="hero relative h-[500px] overflow-hidden">
+        <section class="hero relative h-[660px] overflow-hidden">
             <div class="swiper mySwiper h-full w-full">
                 <div class="swiper-wrapper">
 
@@ -336,11 +336,11 @@
 
         <section class="benefit-section container max-w-[1200px] mx-auto py-10">
             <div class="text-center mb-12">
-                <h2 class="uppercase text-red-600 text-3xl md:text-4xl font-extrabold mb-2">
+                <h2 class="reveal-title uppercase text-red-600 text-3xl md:text-4xl font-extrabold mb-2">
                     LỢI ÍCH
                 </h2>
 
-                <p class="uppercase text-lg md:text-xl font-bold text-gray-800">
+                <p class="reveal-subtitle uppercase text-lg md:text-xl font-bold text-gray-800">
                     KHI SỬ DỤNG HỆ THỐNG THẦU XÂY DỰNG
                 </p>
             </div>
@@ -417,7 +417,7 @@
             </div>
 
             <div class="container mx-auto px-4 relative z-10">
-                <h2 class="text-center text-[#D00A2B] text-4xl font-extrabold uppercase mb-4 tracking-tighter
+                <h2 class="reveal-title text-center text-[#D00A2B] text-4xl font-extrabold uppercase mb-4 tracking-tighter
                 sm-max:text-3xl">
                     TIẾN TRÌNH ĐẤU THẦU XÂY DỰNG
                 </h2>
@@ -566,10 +566,11 @@
             <div class="container mx-auto max-w-[1200px]">
 
                 <div class="text-center mb-10 sm-max:mb-5">
-                    <h2 class="text-[#D00A2B] text-3xl md:text-4xl font-extrabold uppercase tracking-tighter">
+                    <h2
+                        class="reveal-title text-[#D00A2B] text-3xl md:text-4xl font-extrabold uppercase tracking-tighter">
                         Ưu điểm nổi bật
                     </h2>
-                    <p class="text-gray-800 font-bold text-lg uppercase mt-2">Của XayDung.Net</p>
+                    <p class="reveal-subtitletext-gray-800 font-bold text-lg uppercase mt-2">Của XayDung.Net</p>
                 </div>
 
                 <div class="flex flex-col lg:flex-row gap-12 items-start">
@@ -624,54 +625,66 @@
             </div>
         </section>
 
-        <section class="py-16 bg-white font-sans">
+        <section class="achievement-section py-16 bg-white font-sans">
             <div class="container mx-auto px-4 max-w-[1200px]">
-
                 <div class="text-center mb-12">
-                    <h2 class="text-[#D00A2B] text-4xl font-extrabold uppercase tracking-tighter">
-                        Thành tựu
+                    <h2 class="reveal-title text-[#D00A2B] text-4xl font-extrabold uppercase tracking-tighter">Thành tựu
                     </h2>
-                    <p class="text-gray-800 font-extrabold mt-1 uppercase">DauThau.Net đạt được</p>
+                    <p class="reveal-subtitle text-gray-800 font-extrabold mt-1 uppercase">DauThau.Net đạt được</p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-
-                    <div class="flex flex-col items-center group cursor-pointer">
-                        <div class="w-full aspect-[16/10] bg-gray-100 rounded-[1.5rem] overflow-hidden shadow-sm 
-                            transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-2">
-                            <img src="assets/images/thanhtuu-1.png" alt="Thành tựu 1"
-                                class="w-full h-full object-cover">
+                <div class="swiper achievementSwiper overflow-hidden">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide flex flex-col items-center group cursor-pointer h-auto">
+                            <div
+                                class="w-full aspect-[16/10] bg-gray-100 rounded-[1.5rem] overflow-hidden shadow-sm transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-2">
+                                <img src="assets/images/thanhtuu-1.png" alt="Thành tựu 1"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <h2
+                                class="mt-6 text-start font-bold text-gray-900 leading-snug text-[17px] hover:text-[#D00A2B] transition-colors">
+                                Nhu cầu của đấu thầu tư nhân hiện nay ra sao?
+                            </h2>
                         </div>
-                        <h2
-                            class="mt-6 text-start font-bold text-gray-900 leading-snug text-[17px] hover:text-[#D00A2B] transition-colors">
-                            Nhu cầu của đấu thầu tư nhân hiện nay ra sao?
-                        </h2>
+
+                        <div class="swiper-slide flex flex-col items-center group cursor-pointer h-auto">
+                            <div
+                                class="w-full aspect-[16/10] bg-gray-100 rounded-[1.5rem] overflow-hidden shadow-sm transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-2">
+                                <img src="assets/images/thanhtuu-2.png" alt="Thành tựu 2"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <h2
+                                class="mt-6 text-start font-bold text-gray-900 leading-snug text-[18px] hover:text-[#D00A2B] transition-colors">
+                                DauThau.Net được vinh danh TOP Công nghiệp 4.0 Việt Nam - I4.0 Awards 2022
+                            </h2>
+                        </div>
+
+                        <div class="swiper-slide flex flex-col items-center group cursor-pointer h-auto">
+                            <div
+                                class="w-full aspect-[16/10] bg-gray-100 rounded-[1.5rem] overflow-hidden shadow-sm transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-2">
+                                <img src="assets/images/thanhtuu-3.png" alt="Thành tựu 3"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <h2
+                                class="mt-6 text-start font-bold text-gray-900 leading-snug text-[18px] hover:text-[#D00A2B] transition-colors">
+                                DauThau.Net nhận giải thưởng Sao Khuê năm 2022
+                            </h2>
+                        </div>
+
+                        <div class="swiper-slide flex flex-col items-center group cursor-pointer h-auto">
+                            <div
+                                class="w-full aspect-[16/10] bg-gray-100 rounded-[1.5rem] overflow-hidden shadow-sm transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-2">
+                                <img src="assets/images/thanhtuu-1.png" alt="Thành tựu 1"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <h2
+                                class="mt-6 text-start font-bold text-gray-900 leading-snug text-[17px] hover:text-[#D00A2B] transition-colors">
+                                Nhu cầu của đấu thầu tư nhân hiện nay ra sao?
+                            </h2>
+                        </div>
                     </div>
 
-                    <div class="flex flex-col items-center group cursor-pointer">
-                        <div class="w-full aspect-[16/10] bg-gray-100 rounded-[1.5rem] overflow-hidden shadow-sm
-                             transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-2">
-                            <img src="assets/images/thanhtuu-2.png" alt="Thành tựu 2"
-                                class="w-full h-full object-cover">
-                        </div>
-                        <h2
-                            class="mt-6 text-start font-bold text-gray-900 leading-snug text-[18px] hover:text-[#D00A2B] transition-colors">
-                            DauThau.Net được vinh danh TOP Công nghiệp 4.0 Việt Nam - I4.0 Awards 2022
-                        </h2>
-                    </div>
-
-                    <div class="flex flex-col items-center group cursor-pointer">
-                        <div class="w-full aspect-[16/10] bg-gray-100 rounded-[1.5rem] overflow-hidden shadow-sm
-                            transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-2">
-                            <img src="assets/images/thanhtuu-3.png" alt="Thành tựu 3"
-                                class="w-full h-full object-cover">
-                        </div>
-                        <h2
-                            class="mt-6 text-start font-bold text-gray-900 leading-snug text-[18px] hover:text-[#D00A2B] transition-colors">
-                            DauThau.Net nhận giải thưởng Sao Khuê năm 2022
-                        </h2>
-                    </div>
-
+                    <div class="swiper-pagination !static mt-10"></div>
                 </div>
             </div>
         </section>

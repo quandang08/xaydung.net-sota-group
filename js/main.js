@@ -45,10 +45,8 @@ function initUI() {
 
 // --- NHÓM HÀM THƯ VIỆN (Sticky Nav, Swiper, AOS) ---
 function initLibraries() {
-  // A. Sticky Header Reveal
   initStickyNav();
-
-  // B. Hero Swiper Carousel
+  initScrollReveal();
   initHeroSwiper();
 
   // C. AOS (Animate on Scroll)
@@ -62,9 +60,47 @@ function initLibraries() {
   }
 
   initAdvantageSectionAnimations();
+  initAchievementSwiper();
 }
 
-// 1. Logic Sticky Header
+function initScrollReveal() {
+  // 1. Tiêu đề chính: Nhanh & Mạnh mẽ (.reveal-title)
+  gsap.utils.toArray(".reveal-title").forEach((el) => {
+    gsap.fromTo(el, 
+      { y: 40, opacity: 0 }, 
+      {
+        y: 0, opacity: 1,
+        duration: 0.7, // Thời gian ngắn hơn để hiện nhanh
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 90%",
+          toggleActions: "play reverse play reverse",
+        },
+      }
+    );
+  });
+
+  // 2. Tiêu đề con: Chậm & Mượt mà (.reveal-subtitle)
+  gsap.utils.toArray(".reveal-subtitle").forEach((el) => {
+    gsap.fromTo(el, 
+      { y: 50, opacity: 0 }, 
+      {
+        y: 0, opacity: 1,
+        duration: 1.2, // Thời gian dài hơn để tạo độ mượt
+        delay: 0.1,    // Trễ nhẹ 0.1s so với tiêu đề chính nếu chúng xuất hiện cùng lúc
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 90%",
+          toggleActions: "play reverse play reverse",
+        },
+      }
+    );
+  });
+}
+
+//  Logic Sticky Header
 function initStickyNav() {
   const topHeader = document.getElementById("top-header");
   const mainNav = document.getElementById("main-nav");
@@ -172,6 +208,31 @@ function initAdvantageSectionAnimations() {
       },
     }
   );
+}
+
+function initAchievementSwiper() {
+  const swiperEl = document.querySelector(".achievementSwiper");
+  // Kiểm tra nếu phần tử tồn tại mới khởi tạo để tránh lỗi
+  if (!swiperEl || typeof Swiper === "undefined") return;
+
+  new Swiper(".achievementSwiper", {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    grabCursor: true,
+    loop: true,
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    breakpoints: {
+      640: { slidesPerView: 2, spaceBetween: 24 },
+      1024: { slidesPerView: 3, spaceBetween: 30 },
+    },
+  });
 }
 
 function initMobileMenu() {
