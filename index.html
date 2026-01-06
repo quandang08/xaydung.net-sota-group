@@ -310,8 +310,7 @@
                         <div class="absolute inset-0 bg-black/40 z-0"></div>
                         <div class="container mx-auto px-4 z-10 text-center flex flex-col items-center mt-32">
                             <h2 class="text-4xl font-bold mb-4 slide-title">KIẾN TẠO KHÔNG GIAN</h2>
-                            <button
-                                class="bg-[#E43959] text-white text-[15px] px-6 py-3 rounded-xl shadow-lg
+                            <button class="bg-[#E43959] text-white text-[15px] px-6 py-3 rounded-xl shadow-lg
                                 mt-20 hover:bg-[#AD0928] transition-all uppercase">
                                 Xem dự án
                             </button>
@@ -323,8 +322,7 @@
                         <div class="absolute inset-0 bg-black/40 z-0"></div>
                         <div class="container mx-auto px-4 z-10 text-center flex flex-col items-center mt-32">
                             <h2 class="text-4xl font-bold mb-4 slide-title">XÂY DỰNG VỮNG BỀN</h2>
-                            <button
-                                class="bg-[#E43959] text-white text-[15px] px-6 py-3 rounded-xl shadow-lg
+                            <button class="bg-[#E43959] text-white text-[15px] px-6 py-3 rounded-xl shadow-lg
                                 mt-20 hover:bg-[#AD0928] transition-all uppercase">
                                 Xem bảng giá
                             </button>
@@ -336,7 +334,7 @@
             </div>
         </section>
 
-        <section class="container max-w-[1200px] mx-auto py-10">
+        <section class="benefit-section container max-w-[1200px] mx-auto py-10">
             <div class="text-center mb-12">
                 <h2 class="uppercase text-red-600 text-3xl md:text-4xl font-extrabold mb-2">
                     LỢI ÍCH
@@ -349,7 +347,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-                <div class="bg-[#FAF9F9] p-8 border border-gray-100 shadow-[4px_4px_4px_rgba(0,0,0,0.26)]
+                <div class="benefit-card bg-[#FAF9F9] p-8 border border-gray-100 shadow-[4px_4px_4px_rgba(0,0,0,0.26)]
                 transition-all duration-200 text-center group hover:-translate-y-1 hover:shadow-lg">
 
                     <div class="mb-6 flex justify-center">
@@ -368,7 +366,7 @@
                     </p>
                 </div>
 
-                <div class="bg-[#FAF9F9] p-8 border border-gray-100 shadow-[4px_4px_4px_rgba(0,0,0,0.26)]
+                <div class="benefit-card bg-[#FAF9F9] p-8 border border-gray-100 shadow-[4px_4px_4px_rgba(0,0,0,0.26)]
                 transition-all duration-200 text-center group hover:-translate-y-1 hover:shadow-lg">
 
                     <div class="mb-6 flex justify-center">
@@ -387,7 +385,7 @@
                     </p>
                 </div>
 
-                <div class="bg-[#FAF9F9] p-8 border border-gray-100 shadow-[4px_4px_4px_rgba(0,0,0,0.26)]
+                <div class="benefit-card bg-[#FAF9F9] p-8 border border-gray-100 shadow-[4px_4px_4px_rgba(0,0,0,0.26)]
                 transition-all duration-200 text-center group hover:-translate-y-1 hover:shadow-lg">
 
                     <div class="mb-6 flex justify-center">
@@ -576,9 +574,9 @@
 
                 <div class="flex flex-col lg:flex-row gap-12 items-start">
 
-                    <div class="w-full lg:w-[25%] space-y-8">
+                    <div class="advantage-wrapper w-full lg:w-[25%] space-y-8">
 
-                        <div class="bg-[#FAF9F9] p-6 rounded-3xl flex items-center gap-5 transition-all h-[156px]
+                        <div class="advantage-card bg-[#FAF9F9] p-6 rounded-3xl flex items-center gap-5 transition-all h-[156px]
                         shadow-[4px_4px_4px_0_rgba(0,0,0,0.26)]">
                             <div class="shrink-0">
                                 <i data-lucide="file-text" class="w-12 h-12 text-[#D00A2B] stroke-[1]"></i>
@@ -589,8 +587,7 @@
                             </p>
                         </div>
 
-
-                        <div class="bg-[#FAF9F9] p-6 rounded-3xl flex items-center gap-5 transition-all h-[156px]
+                        <div class="advantage-card bg-[#FAF9F9] p-6 rounded-3xl flex items-center gap-5 transition-all h-[156px]
                         shadow-[4px_4px_4px_0_rgba(0,0,0,0.26)]">
                             <div class="shrink-0">
                                 <i data-lucide="refresh-cw" class="w-12 h-12 text-[#D00A2B] stroke-[1]"></i>
@@ -600,7 +597,7 @@
                             </p>
                         </div>
 
-                        <div class="bg-[#FAF9F9] p-6 rounded-3xl flex items-center gap-5 transition-all h-[156px]
+                        <div class="advantage-card bg-[#FAF9F9] p-6 rounded-3xl flex items-center gap-5 transition-all h-[156px]
                         shadow-[4px_4px_4px_0_rgba(0,0,0,0.26)]">
                             <div class="shrink-0">
                                 <i data-lucide="building" class="w-12 h-12 text-[#D00A2B] stroke-[1]"></i>
@@ -612,7 +609,7 @@
 
                     </div>
 
-                    <div class="w-full lg:w-[75%]">
+                    <div class="advantage-video w-full lg:w-[75%]">
                         <div class="relative bg-white overflow-hidden">
 
                             <div class="w-full h-[500px] overflow-hidden bg-black relative">
@@ -819,64 +816,3 @@
 </body>
 
 </html>
-<script>
-    gsap.registerPlugin(ScrollTrigger);
-
-    function initStickyNav() {
-        const topHeader = document.getElementById("top-header");
-        const mainNav = document.getElementById("main-nav");
-
-        if (!topHeader || !mainNav) return;
-
-        const topHeaderHeight = topHeader.offsetHeight;
-
-        ScrollTrigger.create({
-
-            start: `top+=${topHeaderHeight} top`,
-            onEnter: () => {
-                mainNav.classList.add("sticky-active");
-                document.body.style.paddingTop = `${mainNav.offsetHeight}px`;
-            },
-            onLeaveBack: () => {
-                mainNav.classList.remove("sticky-active");
-                document.body.style.paddingTop = "0";
-            }
-        });
-    }
-
-    window.addEventListener("load", initStickyNav);
-</script>
-
-<script>
-    const swiper = new Swiper(".mySwiper", {
-        loop: true,
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-        },
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-        on: {
-            init: function () {
-                animateSlideContent();
-            },
-            slideChangeTransitionStart: function () {
-                animateSlideContent();
-            }
-        }
-    });
-
-    function animateSlideContent() {
-        gsap.fromTo(".swiper-slide-active .slide-title",
-            { y: 50, opacity: 0 },
-            { y: 0, opacity: 1, duration: 3, ease: "power4.out", delay: 0.4 }
-        );
-
-        gsap.fromTo(".swiper-slide-active button",
-            { scale: 0.8, opacity: 0 },
-            { scale: 1, opacity: 1, duration: 0.8, ease: "back.out(1.7)", delay: 0.6 }
-        );
-    }
-</script>
