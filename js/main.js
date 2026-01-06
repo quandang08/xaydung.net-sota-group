@@ -4,7 +4,7 @@ if (gsap && ScrollTrigger) {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-// 2. PIPELINE: Khởi chạy chính
+// PIPELINE
 document.addEventListener("DOMContentLoaded", async () => {
   // Bước A: Nạp các linh kiện HTML đồng thời
   await Promise.all([
@@ -36,41 +36,39 @@ async function injectComponent(id, filePath) {
   }
 }
 
-// --- NHÓM HÀM UI LOGIC ---
 function initUI() {
   initMobileMenu();
   initLogoutDropdown();
   initBackToTop();
 }
 
-// --- NHÓM HÀM THƯ VIỆN (Sticky Nav, Swiper, AOS) ---
 function initLibraries() {
   initStickyNav();
-  initScrollReveal();
   initHeroSwiper();
+  initAchievementSwiper();
+  initBenefitSectionAnimations();
+  initAdvantageSectionAnimations();
+  initScrollReveal();
+  initTextTypewriter();
+  initButtonReveal();
 
-  // C. AOS (Animate on Scroll)
   if (typeof AOS !== "undefined") {
     AOS.init({ duration: 800, once: false });
   }
 
-  // D. GSAP Benefit Cards
-  if (typeof initBenefitSectionAnimations === "function") {
-    initBenefitSectionAnimations();
-  }
-
-  initAdvantageSectionAnimations();
-  initAchievementSwiper();
+  if (window.ScrollTrigger) ScrollTrigger.refresh();
 }
 
 function initScrollReveal() {
   // 1. Tiêu đề chính: Nhanh & Mạnh mẽ (.reveal-title)
   gsap.utils.toArray(".reveal-title").forEach((el) => {
-    gsap.fromTo(el, 
-      { y: 40, opacity: 0 }, 
+    gsap.fromTo(
+      el,
+      { y: 40, opacity: 0 },
       {
-        y: 0, opacity: 1,
-        duration: 0.7, // Thời gian ngắn hơn để hiện nhanh
+        y: 0,
+        opacity: 1,
+        duration: 0.7,
         ease: "power2.out",
         scrollTrigger: {
           trigger: el,
@@ -83,12 +81,14 @@ function initScrollReveal() {
 
   // 2. Tiêu đề con: Chậm & Mượt mà (.reveal-subtitle)
   gsap.utils.toArray(".reveal-subtitle").forEach((el) => {
-    gsap.fromTo(el, 
-      { y: 50, opacity: 0 }, 
+    gsap.fromTo(
+      el,
+      { y: 50, opacity: 0 },
       {
-        y: 0, opacity: 1,
-        duration: 1.2, // Thời gian dài hơn để tạo độ mượt
-        delay: 0.1,    // Trễ nhẹ 0.1s so với tiêu đề chính nếu chúng xuất hiện cùng lúc
+        y: 0,
+        opacity: 1,
+        duration: 1.2,
+        delay: 0.1,
         ease: "power2.out",
         scrollTrigger: {
           trigger: el,
@@ -139,19 +139,52 @@ function initHeroSwiper() {
 }
 
 function animateSlideContent() {
-  if (typeof gsap === "undefined") return;
+  const activeSlide = document.querySelector(".mySwiper .swiper-slide-active");
+  if (!activeSlide || typeof gsap === "undefined") return;
 
-  gsap.fromTo(
-    ".swiper-slide-active .slide-title",
-    { y: 50, opacity: 0 },
-    { y: 0, opacity: 1, duration: 3, ease: "power4.out", delay: 0.4 }
-  );
+  const title = activeSlide.querySelector(".slide-title");
+  const desc = activeSlide.querySelector(".reveal-typewriter");
+  const btn = activeSlide.querySelector(".reveal-btn");
 
-  gsap.fromTo(
-    ".swiper-slide-active button",
-    { scale: 0.8, opacity: 0 },
-    { scale: 1, opacity: 1, duration: 0.8, ease: "back.out(1.7)", delay: 0.6 }
-  );
+  if (title) gsap.set(title, { y: 50, opacity: 0 });
+  if (btn) gsap.set(btn, { scale: 0.8, opacity: 0, y: 20 });
+
+  if (desc) {
+    const rawText = desc.innerText;
+    desc.innerHTML = rawText;
+
+    const chars = splitTextAdvanced(desc);
+    gsap.set(chars, { opacity: 0, y: 15 });
+
+    gsap.to(chars, {
+      opacity: 1,
+      y: 0,
+      duration: 0.4,
+      stagger: 0.015,
+      ease: "power2.out",
+      delay: 0.4,
+    });
+  }
+
+  if (title) {
+    gsap.to(title, {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      ease: "power4.out",
+      delay: 0.2,
+    });
+  }
+  if (btn) {
+    gsap.to(btn, {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      duration: 0.8,
+      ease: "back.out(1.7)",
+      delay: 0.8,
+    });
+  }
 }
 
 function initBenefitSectionAnimations() {
@@ -281,6 +314,81 @@ function initBackToTop() {
   btn.addEventListener("click", () =>
     window.scrollTo({ top: 0, behavior: "smooth" })
   );
+}
+
+/**
+ * Hàm tách văn bản cao cấp: Giữ nguyên cấu trúc từ để tránh vỡ dòng
+ */
+function splitTextAdvanced(element) {
+  const text = element.innerText.trim();
+  const words = text.split(/\s+/);
+
+  element.innerHTML = words
+    .map((word) => {
+      const characters = word
+        .split("")
+        .map(
+          (char) =>
+            `<span class="reveal-char inline-block opacity-0 translate-y-4">${char}</span>`
+        )
+        .join("");
+
+      return `<span class="inline-block whitespace-nowrap">${characters}</span>`;
+    })
+    .join(" ");
+
+  return element.querySelectorAll(".reveal-char");
+}
+
+function initTextTypewriter() {
+  gsap.utils.toArray(".reveal-typewriter").forEach((element) => {
+    const chars = splitTextAdvanced(element);
+
+    gsap.to(chars, {
+      opacity: 1,
+      y: 0,
+      duration: 0.5,
+      stagger: 0.02,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: element,
+        start: "top 90%",
+
+        toggleActions: "restart none none none",
+      },
+    });
+  });
+}
+
+/**
+ * Hàm chuyên dụng cho Button: Nổi lên mượt mà, không giật
+ */
+function initButtonReveal() {
+  gsap.utils.toArray(".reveal-btn").forEach((btn) => {
+    gsap.fromTo(
+      btn,
+      {
+        y: 20,
+        opacity: 0,
+        scale: 0.95,
+      },
+      {
+        y: 0,
+        opacity: 1,
+        scale: 1,
+        duration: 0.8,
+        ease: "power3.out",
+        overwrite: "auto",
+        scrollTrigger: {
+          trigger: btn,
+          start: "top 95%",
+          toggleActions: "restart none none none",
+        },
+
+        onComplete: () => gsap.set(btn, { clearProps: "transform" }),
+      }
+    );
+  });
 }
 
 window.addEventListener("load", () => {
