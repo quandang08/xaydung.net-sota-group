@@ -16,10 +16,13 @@ document.addEventListener("DOMContentLoaded", async () => {
   ]);
 
   initUI();
-
   initLibraries();
 
-  if (ScrollTrigger) ScrollTrigger.refresh();
+  window.addEventListener("load", () => {
+    if (window.ScrollTrigger) {
+      ScrollTrigger.refresh();
+    }
+  });
 });
 
 async function injectComponent(id, filePath) {
