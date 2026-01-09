@@ -1,283 +1,310 @@
-<header class="bg-white shadow-sm">
-    <div id="top-header" class="w-full max-w-[1200px] py-6 flex items-center gap-0 mx-auto 
-         lg:gap-3 sm-max:hidden">
+<header class="bg-[#121418]/90  shadow-2xl border-b border-white/5 top-0 z-[60]">
+        <div id="top-header" class="w-full max-w-[1200px] py-6 flex items-center gap-0 mx-auto 
+        sm-max:hidden">
 
-        <div class="w-[55%] flex justify-between items-center lg-max:max-w-[400px]
-            lg-max:justify-center lg-max:gap-2 lg-max:pl-2 ">
+            <div class="w-[55%] flex justify-between items-center lg-max:max-w-[400px]
+            lg-max:justify-center ">
 
-            <!-- Facebook -->
-            <div class="bg-neutral-400 group h-16 w-36 flex items-center justify-center shrink-0">
                 <div
-                    class="h-12 w-12 flex items-center justify-center rounded-full bg-gray-100 group-hover:bg-gray-200">
-                    <svg class="w-7 h-7 text-gray-500 group-hover:text-[#1877F2] transition-colors duration-200"
-                        viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M22 12.07C22 6.48 17.52 2 11.93 2S1.86 6.48 1.86 12.07C1.86 17.1 5.66 21.23 10.44 22v-7.01H7.9v-2.92h2.54V9.86c0-2.51 1.49-3.9 3.78-3.9 1.1 0 2.25.2 2.25.2v2.47h-1.27c-1.25 0-1.64.78-1.64 1.57v1.89h2.79l-.45 2.92h-2.34V22c4.78-.77 8.58-4.9 8.58-9.93z" />
-                    </svg>
+                    class="bg-white/5 border-x border-white/5 group h-14 w-36 flex items-center justify-center shrink-0 transition-colors hover:bg-white/10">
+                    <div
+                        class="h-10 w-10 flex items-center justify-center rounded-full bg-zinc-800 group-hover:bg-[#1877F2]/20 transition-all">
+                        <svg class="w-6 h-6 text-zinc-400 group-hover:text-[#1877F2] transition-colors duration-200"
+                            viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M22 12.07C22 6.48 17.52 2 11.93 2S1.86 6.48 1.86 12.07C1.86 17.1 5.66 21.23 10.44 22v-7.01H7.9v-2.92h2.54V9.86c0-2.51 1.49-3.9 3.78-3.9 1.1 0 2.25.2 2.25.2v2.47h-1.27c-1.25 0-1.64.78-1.64 1.57v1.89h2.79l-.45 2.92h-2.34V22c4.78-.77 8.58-4.9 8.58-9.93z" />
+                        </svg>
+                    </div>
                 </div>
-            </div>
 
-            <!-- YouTube -->
-            <div class="group bg-neutral-400 h-16 w-36 flex items-center justify-center shrink-0">
                 <div
-                    class="h-12 w-12 flex items-center justify-center rounded-full bg-gray-100 group-hover:bg-gray-200 transition">
-                    <svg class="w-7 h-7 text-gray-500 group-hover:text-[#FF0000] transition-colors duration-200"
-                        viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.3 3.5 12 3.5 12 3.5s-7.3 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c2.1.6 9.4.6 9.4.6s7.3 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM10 15.5V8.5l6 3.5-6 3.5Z" />
-                    </svg>
+                    class="group bg-white/5 border-r border-white/5 h-14 w-36 flex items-center justify-center shrink-0 transition-colors hover:bg-white/10">
+                    <div
+                        class="h-10 w-10 flex items-center justify-center rounded-full bg-zinc-800 group-hover:bg-[#FF0000]/20 transition-all">
+                        <svg class="w-6 h-6 text-zinc-400 group-hover:text-[#FF0000] transition-colors duration-200"
+                            viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.3 3.5 12 3.5 12 3.5s-7.3 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c2.1.6 9.4.6 9.4.6s7.3 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM10 15.5V8.5l6 3.5-6 3.5Z" />
+                        </svg>
+                    </div>
                 </div>
-            </div>
 
-            <!-- LOGOUT (tablet only) -->
-            <div id="logoutWrapper" class="relative hidden h-16 w-36 items-center justify-center shrink-0 
-                lg-max:flex lg-max:w-16 md-max:w-12 cursor-pointer">
-
-                <div class="relative inline-block">
-                    <button id="logoutBtn" class="p-2">
-                        <i data-lucide="log-out"></i>
-                    </button>
-
-                    <div id="logoutDropdown"
-                        class="hidden absolute top-full right-0 mt-2 bg-white border border-gray-200 shadow-xl rounded-lg p-3 z-[100] min-w-[80px]">
-                        <div class="flex flex-col gap-4 items-center">
-
-                            <a href="#"
-                                class="group h-12 w-12 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-all">
-                                <svg class="w-6 h-6 text-gray-500 group-hover:text-[#0A66C2]" viewBox="0 0 24 24"
-                                    fill="currentColor">
-                                    <path
-                                        d="M4.98 3.5a2.5 2.5 0 1 0 0 5.01 2.5 2.5 0 0 0 0-5.01ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.1c.5-.9 1.8-1.9 3.7-1.9 4 0 4.7 2.6 4.7 6v6.2h-4V15c0-1.4 0-3.3-2-3.3-2 0-2.3 1.5-2.3 3.2v6.1h-4V9Z" />
-                                </svg>
-                            </a>
-
-                            <a href="#"
-                                class="group h-12 w-12 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-all">
-                                <svg class="w-6 h-6 text-gray-500 group-hover:text-[#61DAFB]" viewBox="0 0 24 24"
-                                    fill="currentColor">
-                                    <path
-                                        d="M12 10.2a1.8 1.8 0 1 0 0 3.6 1.8 1.8 0 0 0 0-3.6Zm0-8.2c1 0 2.1.1 3.1.3l.4.1.3.3c.4.4.8 1 .9 1.6.2.8-.1 1.6-.7 2.2l-.2.2.2.2c.6.6.9 1.4.7 2.2-.1.6-.5 1.2-.9 1.6l-.3.3-.4.1a22 22 0 0 1-6.2 0l-.4-.1-.3-.3a3 3 0 0 1-.9-1.6c-.2-.8.1-1.6.7-2.2l.2-.2-.2-.2a2.9 2.9 0 0 1-.7-2.2c.1-.6.5-1.2.9-1.6l.3-.3.4-.1c1-.2 2.1-.3 3.1-.3Zm0 18.1c-1 0-2.1-.1-3.1-.3l-.4-.1-.3-.3c-.4-.4-.8-1-.9-1.6-.2-.8.1-1.6.7-2.2l.2-.2-.2-.2c-.6-.6-.9-1.4-.7-2.2.1-.6.5-1.2.9-1.6l.3-.3.4-.1a22 22 0 0 1 6.2 0l.4.1.3.3a3 3 0 0 1 .9 1.6c.2.8-.1 1.6-.7 2.2l-.2.2.2.2c.6.6.9 1.4.7 2.2-.1.6-.5 1.2-.9 1.6l-.3.3-.4.1a22 22 0 0 1-3.1.3Z" />
-                                </svg>
-                            </a>
-
+                <div id="logoutWrapper" class="relative hidden h-14 w-36 items-center justify-center shrink-0 
+                lg-max:flex lg-max:w-16 md-max:w-12 cursor-pointer border-r border-white/5">
+                    <div class="relative inline-block">
+                        <button id="logoutBtn" class="p-2 text-zinc-400 hover:text-white">
+                            <i data-lucide="log-out"></i>
+                        </button>
+                        <div id="logoutDropdown"
+                            class="hidden absolute top-full right-0 mt-2 bg-[#1A1D23] border border-white/10 shadow-2xl rounded-lg p-3 z-[100] min-w-[80px]">
+                            <div class="flex flex-col gap-4 items-center">
+                                <a href="#" class="text-zinc-500 hover:text-[#0A66C2] transition-all"><i
+                                        data-lucide="linkedin"></i></a>
+                                <a href="#" class="text-zinc-500 hover:text-[#61DAFB] transition-all"><i
+                                        data-lucide="atom"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <div
+                    class="group bg-white/5 border-r border-white/5 h-14 w-36 flex items-center justify-center shrink-0 lg-max:hidden transition-colors hover:bg-white/10">
+                    <div
+                        class="h-10 w-10 flex items-center justify-center rounded-full bg-zinc-800 group-hover:bg-[#0A66C2]/20 transition-all">
+                        <svg class="w-6 h-6 text-zinc-400 group-hover:text-[#0A66C2] transition-colors duration-200"
+                            viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M4.98 3.5a2.5 2.5 0 1 0 0 5.01 2.5 2.5 0 0 0 0-5.01ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.1c.5-.9 1.8-1.9 3.7-1.9 4 0 4.7 2.6 4.7 6v6.2h-4V15c0-1.4 0-3.3-2-3.3-2 0-2.3 1.5-2.3 3.2v6.1h-4V9Z" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div
+                    class="group bg-white/5 border-r border-white/5 h-14 w-36 flex items-center justify-center shrink-0 lg-max:hidden transition-colors hover:bg-white/10">
+                    <div
+                        class="h-10 w-10 flex items-center justify-center rounded-full bg-zinc-800 group-hover:bg-[#61DAFB]/20 transition-all">
+                        <svg class="w-6 h-6 text-zinc-400 group-hover:text-[#61DAFB] transition-colors duration-200"
+                            viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 10.2a1.8 1.8 0 1 0 0 3.6 1.8 1.8 0 0 0 0-3.6Zm0-8.2c1 0 2.1.1 3.1.3l.4.1.3.3c.4.4.8 1 .9 1.6.2.8-.1 1.6-.7 2.2l-.2.2.2.2c.6.6.9 1.4.7 2.2-.1.6-.5 1.2-.9 1.6l-.3.3-.4.1a22 22 0 0 1-6.2 0l-.4-.1-.3-.3a3 3 0 0 1-.9-1.6c-.2-.8.1-1.6.7-2.2l.2-.2-.2-.2a2.9 2.9 0 0 1-.7-2.2c.1-.6.5-1.2.9-1.6l.3-.3.4-.1c1-.2 2.1-.3 3.1-.3Zm0 18.1c-1 0-2.1-.1-3.1-.3l-.4-.1-.3-.3c-.4-.4-.8-1-.9-1.6-.2-.8.1-1.6.7-2.2l.2-.2-.2-.2c-.6-.6-.9-1.4-.7-2.2.1-.6.5-1.2.9-1.6l.3-.3.4-.1a22 22 0 0 1 6.2 0l.4.1.3.3a3 3 0 0 1 .9 1.6c.2.8-.1 1.6-.7 2.2l-.2.2.2.2c.6.6.9 1.4.7 2.2-.1.6-.5 1.2-.9 1.6l-.3.3-.4.1a22 22 0 0 1-3.1.3Z" />
+                        </svg>
+                    </div>
+                </div>
+
             </div>
 
-            <!-- LinkedIn (PC only) -->
-            <div class="group bg-neutral-400 h-16 w-36 flex items-center justify-center shrink-0 lg-max:hidden">
-                <div
-                    class="h-12 w-12 flex items-center justify-center rounded-full bg-gray-100 group-hover:bg-gray-200 transition">
-                    <svg class="w-7 h-7 text-gray-500 group-hover:text-[#0A66C2] transition-colors duration-200"
-                        viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M4.98 3.5a2.5 2.5 0 1 0 0 5.01 2.5 2.5 0 0 0 0-5.01ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.1c.5-.9 1.8-1.9 3.7-1.9 4 0 4.7 2.6 4.7 6v6.2h-4V15c0-1.4 0-3.3-2-3.3-2 0-2.3 1.5-2.3 3.2v6.1h-4V9Z" />
-                    </svg>
+            <div class="w-[45%] flex items-center justify-end gap-4 lg-max:mr-10">
+                <div class="text-[13px] space-y-1.5 shrink-0 text-right pl-4">
+                    <div class="flex items-center justify-start gap-2 group cursor-pointer">
+                        <i data-lucide="phone" class="w-3.5 h-3.5 text-[#E43959]"></i>
+                        <span class="font-medium text-zinc-400 group-hover:text-white transition-colors tracking-tight">
+                            0904.634.288 <span class="mx-1 opacity-20">|</span> 024.8888.4288
+                        </span>
+                    </div>
+
+                    <div class="flex items-center justify-start gap-2 group cursor-pointer">
+                        <i data-lucide="mail" class="w-3.5 h-3.5 text-[#E43959]"></i>
+                        <span
+                            class="font-medium text-zinc-400 group-hover:text-white transition-colors tracking-tight lowercase">
+                            contact@amuconstruction.net
+                        </span>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <div class="flex gap-2 opacity-80 hover:opacity-100 transition-opacity">
+                        <img src="assets/images/vn.png" class="h-4 w-6 object-cover rounded-sm shadow-sm" />
+                        <img src="assets/images/uk.png" class="h-4 w-6 object-cover rounded-sm shadow-sm" />
+                    </div>
+
+                    <div class="flex items-center gap-4 px-4 border-l border-white/5 ipad-max:hidden">
+                        <a href="#" class="text-zinc-500 hover:text-[#E43959] transition-all"><i data-lucide="facebook"
+                                class="w-4 h-4"></i></a>
+                        <a href="#" class="text-zinc-500 hover:text-[#E43959] transition-all"><i data-lucide="youtube"
+                                class="w-4 h-4"></i></a>
+                        <a href="#" class="text-zinc-500 hover:text-[#E43959] transition-all"><i data-lucide="rss"
+                                class="w-4 h-4"></i></a>
+                    </div>
+
+                    <button class="bg-[#E43959] text-white px-4 py-3 rounded-lg text-[11px] uppercase font-bold tracking-widest 
+                       hover:bg-[#AD0928] hover:shadow-[0_0_20px_rgba(228,57,89,0.3)] transition-all duration-300">
+                        Đăng nhập
+                    </button>
                 </div>
             </div>
-
-            <!-- React (PC only) -->
-            <div class="group bg-neutral-400 h-16 w-36 flex items-center justify-center shrink-0 lg-max:hidden">
-                <div
-                    class="h-12 w-12 flex items-center justify-center rounded-full bg-gray-100 group-hover:bg-gray-200 transition">
-                    <svg class="w-7 h-7 text-gray-500 group-hover:text-[#61DAFB] transition-colors duration-200"
-                        viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M12 10.2a1.8 1.8 0 1 0 0 3.6 1.8 1.8 0 0 0 0-3.6Zm0-8.2c1 0 2.1.1 3.1.3l.4.1.3.3c.4.4.8 1 .9 1.6.2.8-.1 1.6-.7 2.2l-.2.2.2.2c.6.6.9 1.4.7 2.2-.1.6-.5 1.2-.9 1.6l-.3.3-.4.1a22 22 0 0 1-6.2 0l-.4-.1-.3-.3a3 3 0 0 1-.9-1.6c-.2-.8.1-1.6.7-2.2l.2-.2-.2-.2a2.9 2.9 0 0 1-.7-2.2c.1-.6.5-1.2.9-1.6l.3-.3.4-.1c1-.2 2.1-.3 3.1-.3Zm0 18.1c-1 0-2.1-.1-3.1-.3l-.4-.1-.3-.3c-.4-.4-.8-1-.9-1.6-.2-.8.1-1.6.7-2.2l.2-.2-.2-.2c-.6-.6-.9-1.4-.7-2.2.1-.6.5-1.2.9-1.6l.3-.3.4-.1a22 22 0 0 1 6.2 0l.4.1.3.3a3 3 0 0 1 .9 1.6c.2.8-.1 1.6-.7 2.2l-.2.2.2.2c.6.6.9 1.4.7 2.2-.1.6-.5 1.2-.9 1.6l-.3.3-.4.1a22 22 0 0 1-3.1.3Z" />
-                    </svg>
-                </div>
-            </div>
-
         </div>
 
-        <div class="w-[45%] flex items-center gap-2 lg-max:mr-24">
-            <div class="text-sm space-y-1.5 shrink-0 text-right">
+        <div id="main-nav" class="w-full bg-[#1A1D23]/70 border-t border-white/5 shadow-inner">
+            <nav class="max-w-[1200px] mx-auto flex justify-between h-14 items-center">
+                <button id="open-mobile-menu" class="lg:hidden text-white p-2">
+                    <i data-lucide="menu"></i>
+                </button>
 
-                <div class="flex items-center gap-1 justify-end">
-                    <i data-lucide="phone" class="w-4 h-4 text-black fill-black"></i>
-                    <span
-                        class="font-normal underline text-[16px] decoration-gray-300 underline-offset-4 md-max:text-[15px]">
-                        0904.634.288,
-                    </span>
-                    <span
-                        class="font-normal underline text-[16px] decoration-gray-300 underline-offset-4 md-max:text-[15px]">
-                        024.8888.4288
-                    </span>
+                <ul
+                    class="hidden lg:flex items-center text-[12px] text-zinc-300 font-bold uppercase h-full tracking-wider">
+                    <li class="h-full">
+                        <a href="#"
+                            class="flex items-center px-5 h-full transition hover:bg-[#E43959] hover:text-white border-x border-white/5">
+                            <i data-lucide="house" class="w-4 h-4"></i>
+                        </a>
+                    </li>
+                    <li class="h-full"><a href="gioi-thieu.html"
+                            class="flex items-center px-5 h-full transition hover:bg-[#E43959] hover:text-white border-r border-white/5">Giới
+                            thiệu</a></li>
+                    <li class="relative group h-full">
+                        <a href="#"
+                            class="flex items-center px-5 h-full transition hover:bg-[#E43959] hover:text-white border-r border-white/5">Dự
+                            án</a>
+                        <ul
+                            class="absolute left-0 top-full w-64 bg-[#1A1D23] font-medium text-zinc-300 shadow-2xl border border-white/5 z-50 divide-y divide-white/5 hidden group-hover:block">
+                            <li><a class="block px-6 py-3 hover:bg-[#E43959] hover:text-white">Biệt thự cao cấp</a></li>
+                            <li><a class="block px-6 py-3 hover:bg-[#E43959] hover:text-white">Nhà phố hiện đại</a></li>
+                        </ul>
+                    </li>
+                    <li class="h-full"><a href="#"
+                            class="flex items-center px-5 h-full transition hover:bg-[#E43959] hover:text-white border-r border-white/5">Thiết
+                            kế nhà</a></li>
+                    <li class="h-full"><a href="#"
+                            class="flex items-center px-5 h-full transition hover:bg-[#E43959] hover:text-white border-r border-white/5">Báo
+                            giá</a></li>
+                    <li class="h-full"><a href="#"
+                            class="flex items-center px-5 h-full transition hover:bg-[#E43959] hover:text-white border-r border-white/5">Tin
+                            tức</a></li>
+                    <li class="h-full"><a href="#"
+                            class="flex items-center px-5 h-full transition hover:bg-[#E43959] hover:text-white border-r border-white/5">Liên
+                            hệ</a></li>
+                </ul>
+
+                <div class="hidden lg:flex items-center relative group px-2">
+                    <i data-lucide="search"
+                        class="absolute left-5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-zinc-500 group-focus-within:text-[#E43959]"></i>
+                    <input type="text" placeholder="TÌM KIẾM..."
+                        class="bg-white/5 border border-white/10 rounded-full py-1.5 pl-9 pr-4 text-[10px] text-zinc-300 focus:outline-none focus:ring-1 focus:ring-[#E43959] w-44 transition-all" />
                 </div>
 
-                <div class="flex items-center gap-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5 -ml-0.5" fill="black"
-                        stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect>
-                        <polyline points="22,6 12,13 2,6"></polyline>
-                    </svg>
-
-                    <span
-                        class="font-normal underline text-[16px] decoration-gray-300 underline-offset-4 md-max:text-[15px]">
-                        contact@xaydung.net
-                    </span>
+                <div class="lg:hidden px-4">
+                    <img src="assets/images/logo.png" alt="AMU Logo" class="h-8 w-auto grayscale brightness-200">
                 </div>
+            </nav>
+        </div>
 
-            </div>
+        <div id="mobile-overlay" class="fixed inset-0 bg-black/50 z-[60] hidden transition-opacity"></div>
 
-            <div class="flex items-center gap-1">
-                <img src="assets/images/vn.png" class="h-10 w-9 object-contain" />
-                <img src="assets/images/uk.png" class="h-10 w-9 object-contain" />
+        <div id="mobile-drawer"
+            class="fixed top-0 left-0 w-[300px] h-full bg-[#0D0F12] z-[70] transform -translate-x-full transition-transform duration-500 overflow-y-auto border-r border-white/5 shadow-2xl">
 
-                <img src="assets/images/fb.png" class="h-10 w-9 object-contain ipad-max:hidden" />
-                <img src="assets/images/ytb.png" class="h-10 w-9 object-contain ipad-max:hidden" />
-                <img src="assets/images/wifi.png" class="h-10 w-9 object-contain ipad-max:hidden" />
-
-                <button class="bg-[#E43959] text-white px-4 py-2 lg-max:px-3 lg-max:py-1.5 md-max:px-2 md-max:py-1
-                    rounded shadow hover:opacity-90 transition whitespace-nowrap font-normal">
-                    Đăng nhập
+            <div class="flex items-center justify-between p-7 border-b border-white/5 bg-white/[0.02]">
+                <div class="flex flex-col">
+                    <span class="text-white font-black text-2xl tracking-tighter leading-none">AMU</span>
+                    <span
+                        class="text-[#C5A059] text-[9px] uppercase font-bold tracking-[0.3em] mt-1">Construction</span>
+                </div>
+                <button id="close-mobile-menu" class="text-zinc-500 hover:text-[#D00A2B] transition-colors p-2">
+                    <i data-lucide="x" class="w-6 h-6"></i>
                 </button>
             </div>
 
-        </div>
-    </div>
-
-    <div id="main-nav" class="w-full bg-[#14212A] sticky top-0 z-50">
-        <nav class="max-w-[1200px] mx-auto flex justify-between h-14 items-center">
-
-            <button id="open-mobile-menu" class="lg:hidden text-white p-2">
-                <i data-lucide="menu" class="w-6 h-6"></i>
-            </button>
-
-            <ul class="hidden lg:flex items-center text-[13px] text-white font-bold uppercase h-full">
-
-                <li class="relative group shrink-0 h-full">
-                    <a href="#" class="flex items-center px-4 h-full transition 
-                        group-hover:bg-[#E43959] group-hover:text-white">
-                        <i data-lucide="house" class="w-5 h-5 stroke-current"></i>
-                    </a>
-                </li>
-
-                <li class="relative group h-full flex items-center">
-                    <a href="gioi-thieu.html"
-                        class="flex items-center px-4 py-2 h-full transition group-hover:bg-[#E43959] group-hover:text-white">
-                        Giới thiệu
-                    </a>
-                </li>
-                <li class="relative group shrink-0 h-full">
-                    <a href="#"
-                        class="flex items-center px-4 py-2 h-full transition group-hover:bg-[#E43959] group-hover:text-white">
-                        Dự án
-                    </a>
-
-                    <ul class="absolute left-0 top-full w-64 bg-white font-medium text-black shadow-lg border z-50
-                        divide-y divide-gray-200 hidden group-hover:block">
-                        <li><a class="block px-4 py-2 hover:bg-[#E43959] hover:text-white">Biệt thự</a></li>
-                        <li><a class="block px-4 py-2 hover:bg-[#E43959] hover:text-white">Nhà phố</a></li>
-                    </ul>
-                </li>
-
-                <li class="relative group shrink-0 h-full">
-                    <a href="#"
-                        class="flex items-center px-4 py-2 h-full transition group-hover:bg-[#E43959] group-hover:text-white">
-                        Thiết kế nhà đẹp
-                    </a>
-                </li>
-
-                <li class="relative group shrink-0 h-full">
-                    <a href="#"
-                        class="flex items-center px-4 py-2 h-full transition group-hover:bg-[#E43959] group-hover:text-white">
-                        Bảng báo giá
-                    </a>
-                </li>
-                <li class="relative group shrink-0 h-full">
-                    <a href="#"
-                        class="flex items-center px-4 py-2 h-full transition group-hover:bg-[#E43959] group-hover:text-white">Tin
-                        tức
-                    </a>
-
-                </li>
-                <li class="relative group shrink-0 h-full">
-                    <a href="#"
-                        class="flex items-center px-4 py-2 h-full transition group-hover:bg-[#E43959] group-hover:text-white">Liên
-                        hệ
-                    </a>
-                </li>
-            </ul>
-
-            <div class="hidden lg:block relative w-[170px] px-2">
-                <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"></i>
-                <input type="text" class="w-full h-[20px] pl-9 pr-4 py-2 rounded border border-gray-300 shadow-sm
-                                  focus:outline-none focus:ring-2" />
+            <div class="p-6">
+                <div class="relative group">
+                    <i data-lucide="search"
+                        class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-600 group-focus-within:text-[#C5A059] transition-colors"></i>
+                    <input type="text"
+                        class="w-full pl-10 pr-4 py-3 rounded-xl bg-white/[0.03] text-zinc-300 border border-white/10 focus:outline-none focus:border-[#C5A059]/40 transition-all text-[13px] placeholder:text-zinc-600 uppercase tracking-widest"
+                        placeholder="Tìm kiếm dự án...">
+                </div>
             </div>
 
-            <div class="lg:hidden text-white font-bold px-4">
-                XAYDUNG.NET
+            <nav class="mt-2">
+                <ul class="text-zinc-400 font-bold uppercase text-[12px] tracking-[0.2em]">
+
+                    <!-- Trang chủ -->
+                    <li class="menu-item">
+                        <a href="#" class="flex items-center px-7 py-4 border-b border-white/[0.03]
+                      hover:bg-white/[0.02] hover:text-[#C5A059] transition-all">
+                            <i data-lucide="house" class="w-4 h-4 mr-4 text-[#D00A2B] opacity-80"></i>
+                            Trang chủ
+                        </a>
+                    </li>
+
+                    <!-- Giới thiệu -->
+                    <li class="menu-item">
+                        <a href="gioi-thieu.html" class="flex items-center px-7 py-4 border-b border-white/[0.03]
+                      hover:bg-white/[0.02] hover:text-[#C5A059] transition-all">
+                            <i data-lucide="info" class="w-4 h-4 mr-4 text-[#C5A059]"></i>
+                            Giới thiệu
+                        </a>
+                    </li>
+
+                    <!-- Dự án (accordion) -->
+                    <li class="menu-item border-b border-white/[0.03]">
+                        <details class="group">
+                            <summary class="px-7 py-4 flex justify-between items-center cursor-pointer
+                           hover:text-white list-none group-open:text-[#C5A059]">
+                                <span class="flex items-center">
+                                    <i data-lucide="briefcase" class="w-4 h-4 mr-4 text-[#C5A059]"></i>
+                                    Dự án
+                                </span>
+                                <i data-lucide="chevron-down"
+                                    class="w-3 h-3 transition-transform group-open:rotate-180"></i>
+                            </summary>
+
+                            <ul class="bg-black/40 text-zinc-500 text-[11px] normal-case font-medium pb-3">
+                                <li>
+                                    <a href="#" class="block px-16 py-3 hover:text-white
+                                  border-l-2 border-transparent hover:border-[#D00A2B] transition-all">
+                                        Biệt thự cao cấp
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block px-16 py-3 hover:text-white
+                                  border-l-2 border-transparent hover:border-[#D00A2B] transition-all">
+                                        Nhà phố hiện đại
+                                    </a>
+                                </li>
+                            </ul>
+                        </details>
+                    </li>
+
+                    <!-- Thiết kế nhà -->
+                    <li class="menu-item">
+                        <a href="#" class="flex items-center px-7 py-4 border-b border-white/[0.03]
+                      hover:text-[#C5A059] transition-all">
+                            <i data-lucide="pen-tool" class="w-4 h-4 mr-4 text-[#C5A059]"></i>
+                            Thiết kế nhà
+                        </a>
+                    </li>
+
+                    <!-- Báo giá -->
+                    <li class="menu-item">
+                        <a href="#" class="flex items-center px-7 py-4 border-b border-white/[0.03]
+                      hover:text-[#C5A059] transition-all">
+                            <i data-lucide="file-text" class="w-4 h-4 mr-4 text-[#C5A059]"></i>
+                            Báo giá
+                        </a>
+                    </li>
+
+                    <!-- Tin tức -->
+                    <li class="menu-item">
+                        <a href="#" class="flex items-center px-7 py-4 border-b border-white/[0.03]
+                      hover:text-[#C5A059] transition-all">
+                            <i data-lucide="newspaper" class="w-4 h-4 mr-4 text-[#C5A059]"></i>
+                            Tin tức
+                        </a>
+                    </li>
+
+                    <!-- Liên hệ -->
+                    <li class="menu-item">
+                        <a href="#" class="flex items-center px-7 py-4
+                      hover:text-[#C5A059] transition-all">
+                            <i data-lucide="phone-call" class="w-4 h-4 mr-4 text-[#D00A2B]"></i>
+                            Liên hệ
+                        </a>
+                    </li>
+
+                </ul>
+            </nav>
+
+            <div class="mt-12 p-7 space-y-5 border-t border-white/5 bg-gradient-to-b from-transparent to-[#D00A2B]/5">
+                <div class="flex items-center gap-4 group">
+                    <div
+                        class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-[#C5A059]/20 transition-colors">
+                        <i data-lucide="phone" class="w-3.5 h-3.5 text-[#C5A059]"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-[10px] text-zinc-600 uppercase tracking-tighter">Hotline</span>
+                        <span class="text-zinc-300 text-[13px] font-bold">0904.634.288</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 group">
+                    <div
+                        class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-[#D00A2B]/20 transition-colors">
+                        <i data-lucide="mail" class="w-3.5 h-3.5 text-[#D00A2B]"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-[10px] text-zinc-600 uppercase tracking-tighter">Email</span>
+                        <span class="text-zinc-300 text-[13px] font-bold">contact@amu.net</span>
+                    </div>
+                </div>
             </div>
-        </nav>
-    </div>
-
-    <div id="mobile-overlay" class="fixed inset-0 bg-black/50 z-[60] hidden transition-opacity"></div>
-
-    <div id="mobile-drawer"
-        class="fixed top-0 left-0 w-[280px] h-full bg-[#14212A] z-[70] transform -translate-x-full transition-transform duration-300 overflow-y-auto">
-
-        <div class="flex items-center justify-between p-4 border-b border-gray-700">
-            <span class="text-white font-bold text-lg">MENU</span>
-            <button id="close-mobile-menu" class="text-white p-1 hover:bg-white/10 rounded">
-                <i data-lucide="x" class="w-6 h-6"></i>
-            </button>
         </div>
-
-        <div class="p-4">
-            <div class="relative">
-                <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"></i>
-                <input type="text"
-                    class="w-full pl-9 pr-4 py-2 rounded bg-[#0C1419] text-white border border-gray-700 focus:outline-none focus:border-[#E43959]"
-                    placeholder="Tìm kiếm...">
-            </div>
-        </div>
-
-        <ul class="text-white font-bold uppercase text-[14px]">
-
-            <li>
-                <a href="#" class="block px-5 py-3 border-b border-gray-800 hover:text-[#E43959]">
-                    <i data-lucide="house" class="w-4 h-4 inline mr-2"></i> Trang chủ
-                </a>
-            </li>
-
-            <li class="border-b border-gray-800">
-                <details class="group">
-                    <summary
-                        class="px-5 py-3 flex justify-between items-center cursor-pointer hover:text-[#E43959] list-none">
-                        Giới thiệu
-                        <i data-lucide="chevron-down" class="w-4 h-4 transition-transform group-open:rotate-180"></i>
-                    </summary>
-                    <ul class="bg-[#0C1419] text-gray-300 text-[13px] normal-case font-normal">
-                        <li><a href="#"
-                                class="block px-8 py-2.5 hover:text-white border-l-2 border-transparent hover:border-[#E43959]">Về
-                                chúng tôi</a></li>
-                        <li><a href="#"
-                                class="block px-8 py-2.5 hover:text-white border-l-2 border-transparent hover:border-[#E43959]">Cơ
-                                cấu tổ chức</a></li>
-                        <li><a href="#"
-                                class="block px-8 py-2.5 hover:text-white border-l-2 border-transparent hover:border-[#E43959]">Đối
-                                tác</a></li>
-                    </ul>
-                </details>
-            </li>
-
-            <li class="border-b border-gray-800">
-                <details class="group">
-                    <summary
-                        class="px-5 py-3 flex justify-between items-center cursor-pointer hover:text-[#E43959] list-none">
-                        Dự án thầu
-                        <i data-lucide="chevron-down" class="w-4 h-4 transition-transform group-open:rotate-180"></i>
-                    </summary>
-                    <ul class="bg-[#0C1419] text-gray-300 text-[13px] normal-case font-normal">
-                        <li><a href="#" class="block px-8 py-2.5 hover:text-white">Thông báo mời thầu</a></li>
-                        <li><a href="#" class="block px-8 py-2.5 hover:text-white">Kế hoạch lựa chọn</a></li>
-                    </ul>
-                </details>
-            </li>
-
-            <li><a href="#" class="block px-5 py-3 border-b border-gray-800 hover:text-[#E43959]">Liên hệ</a></li>
-        </ul>
-    </div>
-</header>
+    </header>

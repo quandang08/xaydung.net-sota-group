@@ -3,7 +3,9 @@
  * @description Điểm khởi chạy hệ thống (Entry Point).
  * Quản lý vòng đời ứng dụng, nạp linh kiện (Components) và kích hoạt các thư viện bổ trợ.
  */
-const { gsap, ScrollTrigger, Swiper, AOS, lucide } = window;
+
+const { gsap, ScrollTrigger, Swiper, AOS, lucide, Lenis } = window;
+let lenis;
 
 if (gsap && ScrollTrigger) {
   gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
@@ -54,6 +56,7 @@ function initUI() {
  * @description Khởi tạo thư viện bên thứ ba và hệ thống GSAP.
  */
 function initLibraries() {
+  initSmoothScroll();
   initScrollReveal();
   initTextTypewriter();
   initStickyNav();
@@ -165,7 +168,11 @@ function initHeroSwiper() {
 
   const swiper = new Swiper(".mySwiper", {
     loop: true,
-    autoplay: { delay: 5000, disableOnInteraction: false },
+    effect: "fade",
+    fadeEffect: { crossFade: true },
+    speed: 1200,
+    parallax: true,
+    autoplay: { delay: 6000, disableOnInteraction: false },
     pagination: { el: ".swiper-pagination", clickable: true },
     on: {
       init: animateSlideContent,
@@ -192,24 +199,24 @@ function animateSlideContent() {
   const title = activeSlide.querySelector(".slide-title");
   const desc = activeSlide.querySelector(".reveal-typewriter");
   const btn = activeSlide.querySelector(".reveal-btn");
+  const bg = activeSlide.querySelector(".bg-cover");
 
-  if (title) gsap.set(title, { y: 50, opacity: 0 });
-  if (btn) gsap.set(btn, { scale: 0.8, opacity: 0, y: 20 });
+  gsap.killTweensOf([title, desc, btn, bg]);
+
+  if (title) gsap.set(title, { y: 30, opacity: 0 });
+  if (btn) gsap.set(btn, { y: 20, opacity: 0, scale: 0.9 });
+  if (bg) gsap.set(bg, { scale: 1.2 });
 
   if (desc) {
-    const rawText = desc.innerText;
-    desc.innerHTML = rawText;
-
     const chars = splitTextAdvanced(desc);
-    gsap.set(chars, { opacity: 0, y: 15 });
-
+    gsap.set(chars, { opacity: 0, y: 10 });
     gsap.to(chars, {
       opacity: 1,
       y: 0,
-      duration: 0.4,
-      stagger: 0.015,
+      duration: 0.6,
+      stagger: 0.01,
       ease: "power2.out",
-      delay: 0.4,
+      delay: 0.6,
     });
   }
 
@@ -217,23 +224,27 @@ function animateSlideContent() {
     gsap.to(title, {
       y: 0,
       opacity: 1,
-      duration: 1,
-      ease: "power4.out",
-      delay: 0.2,
+      duration: 1.2,
+      ease: "expo.out",
+      delay: 0.3,
     });
   }
+
   if (btn) {
     gsap.to(btn, {
+      y: 0,
       opacity: 1,
       scale: 1,
-      y: 0,
-      duration: 0.8,
-      ease: "back.out(1.7)",
-      delay: 0.8,
+      duration: 1,
+      ease: "power3.out",
+      delay: 0.9,
     });
   }
-}
 
+  if (bg) {
+    gsap.to(bg, { scale: 1, duration: 6, ease: "linear" });
+  }
+}
 /**
  * @function initBenefitSectionAnimations
  * @description Khởi tạo hiệu ứng hiển thị danh sách thẻ lợi ích (Benefit Cards).
@@ -247,24 +258,37 @@ function initBenefitSectionAnimations() {
   const cards = document.querySelectorAll(".benefit-card");
   if (cards.length === 0) return;
 
-  gsap.fromTo(
-    cards,
-    { y: 100, opacity: 0 },
-    {
-      y: 0,
-      opacity: 1,
-      duration: 0.8,
-      stagger: 0.2,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: ".benefit-section",
-        start: "top 80%",
-        toggleActions: "restart none none none",
-      },
-    }
-  );
-}
+  gsap.set(cards, {
+    y: 60,
+    opacity: 0,
+    scale: 0.98,
+  });
 
+  ScrollTrigger.batch(cards, {
+    onEnter: (elements) => {
+      gsap.to(elements, {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        stagger: 0.2,
+        duration: 1.2,
+        ease: "expo.out",
+        overwrite: true,
+      });
+    },
+    onLeaveBack: (elements) => {
+      gsap.to(elements, {
+        opacity: 0,
+        y: 60,
+        scale: 0.98,
+        duration: 0.8,
+        ease: "power2.inOut",
+        overwrite: true,
+      });
+    },
+    start: "top 85%",
+  });
+}
 /**
  * @function initAdvantageSectionAnimations
  * @description Quản lý hiệu ứng hội tụ của khối nội dung ưu thế và thành phần Video.
@@ -275,37 +299,37 @@ function initBenefitSectionAnimations() {
  * @requires gsap, ScrollTrigger
  */
 function initAdvantageSectionAnimations() {
-  gsap.fromTo(
-    ".advantage-card",
-    { x: -80, opacity: 0 },
-    {
-      x: 0,
-      opacity: 1,
-      duration: 0.6,
-      stagger: 0.15,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: ".advantage-wrapper",
-        start: "top 85%",
-        toggleActions: "restart none none none",
-      },
-    }
-  );
-  gsap.fromTo(
-    ".advantage-video",
-    { x: 80, opacity: 0 },
-    {
-      x: 0,
-      opacity: 1,
-      duration: 0.8,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: ".advantage-wrapper",
-        start: "top 80%",
-        toggleActions: "restart none none none",
-      },
-    }
-  );
+  const wrapper = document.querySelector(".advantage-wrapper");
+  if (!wrapper) return;
+
+  // Animation cho các thẻ Advantage
+  gsap.from(".advantage-card", {
+    x: -40,
+    opacity: 0,
+    duration: 1.2,
+    stagger: 0.15,
+    ease: "expo.out",
+    scrollTrigger: {
+      trigger: ".advantage-wrapper",
+      start: "top 85%",
+
+      toggleActions: "play none none reverse",
+    },
+  });
+
+  // Animation cho Video Showcase
+  gsap.from(".advantage-video", {
+    x: 40,
+    scale: 0.98,
+    opacity: 0,
+    duration: 1.5,
+    ease: "expo.out",
+    scrollTrigger: {
+      trigger: ".advantage-video",
+      start: "top 80%",
+      toggleActions: "play none none reverse",
+    },
+  });
 }
 
 /**
@@ -319,25 +343,32 @@ function initAdvantageSectionAnimations() {
  */
 function initAchievementSwiper() {
   const swiperEl = document.querySelector(".achievementSwiper");
-  // Kiểm tra nếu phần tử tồn tại mới khởi tạo để tránh lỗi
   if (!swiperEl || typeof Swiper === "undefined") return;
 
   new Swiper(".achievementSwiper", {
     slidesPerView: 1,
-    spaceBetween: 20,
+    spaceBetween: 30,
     grabCursor: true,
     loop: true,
+    speed: 1200,
+    watchSlidesProgress: true,
+
     autoplay: {
-      delay: 4000,
+      delay: 5000,
       disableOnInteraction: false,
     },
+
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
+      renderBullet: function (index, className) {
+        return `<span class="${className} !w-10 !h-[2px] !rounded-none !bg-white/10 !mx-1 transition-all duration-500"></span>`;
+      },
     },
+
     breakpoints: {
-      640: { slidesPerView: 2, spaceBetween: 24 },
-      1024: { slidesPerView: 3, spaceBetween: 30 },
+      768: { slidesPerView: 2, spaceBetween: 40 },
+      1024: { slidesPerView: 3, spaceBetween: 50 },
     },
   });
 }
@@ -355,10 +386,53 @@ function initMobileMenu() {
   const close = document.getElementById("close-mobile-menu");
   const drawer = document.getElementById("mobile-drawer");
   const overlay = document.getElementById("mobile-overlay");
+  const menuItems = document.querySelectorAll(".menu-item");
+
+  if (!drawer || !overlay) return;
+
+  gsap.set(menuItems, { x: -20, opacity: 0 });
+  gsap.set(overlay, { opacity: 0, visibility: "hidden" });
 
   const toggle = (state) => {
-    drawer?.classList.toggle("-translate-x-full", !state);
-    overlay?.classList.toggle("hidden", !state);
+    drawer.classList.toggle("-translate-x-full", !state);
+
+    if (state) {
+      gsap.to(overlay, {
+        opacity: 1,
+        visibility: "visible",
+        duration: 0.4,
+        ease: "power2.out",
+      });
+
+      gsap.to(menuItems, {
+        x: 0,
+        opacity: 1,
+        stagger: 0.1,
+        duration: 0.6,
+        ease: "expo.out",
+        delay: 0.3,
+        overwrite: true,
+      });
+
+      if (lenis) lenis.stop();
+    } else {
+      gsap.to(overlay, {
+        opacity: 0,
+        duration: 0.3,
+        ease: "power2.in",
+        onComplete: () => gsap.set(overlay, { visibility: "hidden" }),
+      });
+
+      gsap.to(menuItems, {
+        x: -20,
+        opacity: 0,
+        duration: 0.3,
+        ease: "power2.in",
+        overwrite: true,
+      });
+
+      if (lenis) lenis.start();
+    }
   };
 
   open?.addEventListener("click", () => toggle(true));
@@ -409,9 +483,13 @@ function initBackToTop() {
     btn.classList.toggle("pointer-events-none", !show);
   });
 
-  btn.addEventListener("click", () =>
-    window.scrollTo({ top: 0, behavior: "smooth" })
-  );
+  btn.addEventListener("click", () => {
+    if (lenis) {
+      lenis.scrollTo(0, { duration: 1.5 });
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  });
 }
 
 /**
@@ -663,6 +741,35 @@ function initProcessStepsReveal() {
       },
     }
   );
+}
+
+/**
+ * @function initSmoothScroll
+ * @description Khởi tạo Lenis Smooth Scroll và đồng bộ hóa với GSAP ScrollTrigger.
+ * @group LIBRARIES_ANIMATION
+ */
+function initSmoothScroll() {
+  if (typeof Lenis === "undefined") return;
+
+  // 1. Khởi tạo Lenis
+  lenis = new Lenis({
+    duration: 1.5,
+    lerp: 0.1,
+    smoothWheel: true,
+    wheelMultiplier: 1,
+  });
+
+  // 2. Đồng bộ với ScrollTrigger
+  // Mỗi khi Lenis cuộn, nó phải báo cho ScrollTrigger cập nhật vị trí
+  lenis.on("scroll", ScrollTrigger.update);
+
+  // 3. Sử dụng khung hình của GSAP để chạy vòng lặp Lenis (Tối ưu hiệu năng)
+  gsap.ticker.add((time) => {
+    lenis.raf(time * 1000);
+  });
+
+  // 4. Tắt làm mịn lag của GSAP để không xung đột với Lenis
+  gsap.ticker.lagSmoothing(0);
 }
 
 window.addEventListener("load", () => {

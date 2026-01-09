@@ -9,298 +9,26 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
 </head>
 
-<body class="w-full bg-white font-sans text-gray-900">
-    <header class="bg-white shadow-sm">
-        <div id="top-header" class="w-full max-w-[1200px] py-6 flex items-center gap-0 mx-auto 
-         lg:gap-3 sm-max:hidden">
+<body class="bg-[#121418] text-zinc-300 font-sans antialiased overflow-x-hidden">
 
-            <div class="w-[55%] flex justify-between items-center lg-max:max-w-[400px]
-            lg-max:justify-center lg-max:gap-2 lg-max:pl-2 ">
+    <div class="fixed inset-0 z-0 pointer-events-none opacity-[0.05]"
+        style="background-image: radial-gradient(#ffffff 0.5px, transparent 0.5px); background-size: 24px 24px;">
+    </div>
 
-                <!-- Facebook -->
-                <div class="bg-neutral-400 group h-16 w-36 flex items-center justify-center shrink-0">
-                    <div
-                        class="h-12 w-12 flex items-center justify-center rounded-full bg-gray-100 group-hover:bg-gray-200">
-                        <svg class="w-7 h-7 text-gray-500 group-hover:text-[#1877F2] transition-colors duration-200"
-                            viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M22 12.07C22 6.48 17.52 2 11.93 2S1.86 6.48 1.86 12.07C1.86 17.1 5.66 21.23 10.44 22v-7.01H7.9v-2.92h2.54V9.86c0-2.51 1.49-3.9 3.78-3.9 1.1 0 2.25.2 2.25.2v2.47h-1.27c-1.25 0-1.64.78-1.64 1.57v1.89h2.79l-.45 2.92h-2.34V22c4.78-.77 8.58-4.9 8.58-9.93z" />
-                        </svg>
-                    </div>
-                </div>
+    <div class="fixed inset-0 z-[1] pointer-events-none"
+        style="background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(18,20,24,0) 50%);">
+    </div>
 
-                <!-- YouTube -->
-                <div class="group bg-neutral-400 h-16 w-36 flex items-center justify-center shrink-0">
-                    <div
-                        class="h-12 w-12 flex items-center justify-center rounded-full bg-gray-100 group-hover:bg-gray-200 transition">
-                        <svg class="w-7 h-7 text-gray-500 group-hover:text-[#FF0000] transition-colors duration-200"
-                            viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.3 3.5 12 3.5 12 3.5s-7.3 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c2.1.6 9.4.6 9.4.6s7.3 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM10 15.5V8.5l6 3.5-6 3.5Z" />
-                        </svg>
-                    </div>
-                </div>
+    <div class="fixed inset-0 z-[2] opacity-[0.02] pointer-events-none"
+        style="background-image: url('https://grainy-gradients.vercel.app/noise.svg');">
+    </div>
 
-                <!-- LOGOUT (tablet only) -->
-                <div id="logoutWrapper" class="relative hidden h-16 w-36 items-center justify-center shrink-0 
-                lg-max:flex lg-max:w-16 md-max:w-12 cursor-pointer">
+    <div id="header-placeholder"></div>
 
-                    <div class="relative inline-block">
-                        <button id="logoutBtn" class="p-2">
-                            <i data-lucide="log-out"></i>
-                        </button>
-
-                        <div id="logoutDropdown"
-                            class="hidden absolute top-full right-0 mt-2 bg-white border border-gray-200 shadow-xl rounded-lg p-3 z-[100] min-w-[80px]">
-                            <div class="flex flex-col gap-4 items-center">
-
-                                <a href="#"
-                                    class="group h-12 w-12 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-all">
-                                    <svg class="w-6 h-6 text-gray-500 group-hover:text-[#0A66C2]" viewBox="0 0 24 24"
-                                        fill="currentColor">
-                                        <path
-                                            d="M4.98 3.5a2.5 2.5 0 1 0 0 5.01 2.5 2.5 0 0 0 0-5.01ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.1c.5-.9 1.8-1.9 3.7-1.9 4 0 4.7 2.6 4.7 6v6.2h-4V15c0-1.4 0-3.3-2-3.3-2 0-2.3 1.5-2.3 3.2v6.1h-4V9Z" />
-                                    </svg>
-                                </a>
-
-                                <a href="#"
-                                    class="group h-12 w-12 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-all">
-                                    <svg class="w-6 h-6 text-gray-500 group-hover:text-[#61DAFB]" viewBox="0 0 24 24"
-                                        fill="currentColor">
-                                        <path
-                                            d="M12 10.2a1.8 1.8 0 1 0 0 3.6 1.8 1.8 0 0 0 0-3.6Zm0-8.2c1 0 2.1.1 3.1.3l.4.1.3.3c.4.4.8 1 .9 1.6.2.8-.1 1.6-.7 2.2l-.2.2.2.2c.6.6.9 1.4.7 2.2-.1.6-.5 1.2-.9 1.6l-.3.3-.4.1a22 22 0 0 1-6.2 0l-.4-.1-.3-.3a3 3 0 0 1-.9-1.6c-.2-.8.1-1.6.7-2.2l.2-.2-.2-.2a2.9 2.9 0 0 1-.7-2.2c.1-.6.5-1.2.9-1.6l.3-.3.4-.1c1-.2 2.1-.3 3.1-.3Zm0 18.1c-1 0-2.1-.1-3.1-.3l-.4-.1-.3-.3c-.4-.4-.8-1-.9-1.6-.2-.8.1-1.6.7-2.2l.2-.2-.2-.2c-.6-.6-.9-1.4-.7-2.2.1-.6.5-1.2.9-1.6l.3-.3.4-.1a22 22 0 0 1 6.2 0l.4.1.3.3a3 3 0 0 1 .9 1.6c.2.8-.1 1.6-.7 2.2l-.2.2.2.2c.6.6.9 1.4.7 2.2-.1.6-.5 1.2-.9 1.6l-.3.3-.4.1a22 22 0 0 1-3.1.3Z" />
-                                    </svg>
-                                </a>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- LinkedIn (PC only) -->
-                <div class="group bg-neutral-400 h-16 w-36 flex items-center justify-center shrink-0 lg-max:hidden">
-                    <div
-                        class="h-12 w-12 flex items-center justify-center rounded-full bg-gray-100 group-hover:bg-gray-200 transition">
-                        <svg class="w-7 h-7 text-gray-500 group-hover:text-[#0A66C2] transition-colors duration-200"
-                            viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M4.98 3.5a2.5 2.5 0 1 0 0 5.01 2.5 2.5 0 0 0 0-5.01ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.1c.5-.9 1.8-1.9 3.7-1.9 4 0 4.7 2.6 4.7 6v6.2h-4V15c0-1.4 0-3.3-2-3.3-2 0-2.3 1.5-2.3 3.2v6.1h-4V9Z" />
-                        </svg>
-                    </div>
-                </div>
-
-                <!-- React (PC only) -->
-                <div class="group bg-neutral-400 h-16 w-36 flex items-center justify-center shrink-0 lg-max:hidden">
-                    <div
-                        class="h-12 w-12 flex items-center justify-center rounded-full bg-gray-100 group-hover:bg-gray-200 transition">
-                        <svg class="w-7 h-7 text-gray-500 group-hover:text-[#61DAFB] transition-colors duration-200"
-                            viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M12 10.2a1.8 1.8 0 1 0 0 3.6 1.8 1.8 0 0 0 0-3.6Zm0-8.2c1 0 2.1.1 3.1.3l.4.1.3.3c.4.4.8 1 .9 1.6.2.8-.1 1.6-.7 2.2l-.2.2.2.2c.6.6.9 1.4.7 2.2-.1.6-.5 1.2-.9 1.6l-.3.3-.4.1a22 22 0 0 1-6.2 0l-.4-.1-.3-.3a3 3 0 0 1-.9-1.6c-.2-.8.1-1.6.7-2.2l.2-.2-.2-.2a2.9 2.9 0 0 1-.7-2.2c.1-.6.5-1.2.9-1.6l.3-.3.4-.1c1-.2 2.1-.3 3.1-.3Zm0 18.1c-1 0-2.1-.1-3.1-.3l-.4-.1-.3-.3c-.4-.4-.8-1-.9-1.6-.2-.8.1-1.6.7-2.2l.2-.2-.2-.2c-.6-.6-.9-1.4-.7-2.2.1-.6.5-1.2.9-1.6l.3-.3.4-.1a22 22 0 0 1 6.2 0l.4.1.3.3a3 3 0 0 1 .9 1.6c.2.8-.1 1.6-.7 2.2l-.2.2.2.2c.6.6.9 1.4.7 2.2-.1.6-.5 1.2-.9 1.6l-.3.3-.4.1a22 22 0 0 1-3.1.3Z" />
-                        </svg>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="w-[45%] flex items-center gap-2 lg-max:mr-24">
-                <div class="text-sm space-y-1.5 shrink-0 text-right">
-
-                    <div class="flex items-center gap-1">
-                        <i data-lucide="phone" class="w-4 h-4 text-black fill-black"></i>
-                        <span
-                            class="font-normal underline text-[16px] decoration-gray-300 underline-offset-4 md-max:text-[15px]">
-                            0904.634.288,
-                        </span>
-                        <span
-                            class="font-normal underline text-[16px] decoration-gray-300 underline-offset-4 md-max:text-[15px]">
-                            024.8888.4288
-                        </span>
-                    </div>
-
-                    <div class="flex items-center gap-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5 -ml-0.5" fill="black"
-                            stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect>
-                            <polyline points="22,6 12,13 2,6"></polyline>
-                        </svg>
-
-                        <span
-                            class="font-normal underline text-[16px] decoration-gray-300 underline-offset-4 md-max:text-[15px]">
-                            contact@amuconstruction.net
-                        </span>
-                    </div>
-
-                </div>
-
-                <div class="flex items-center gap-1">
-                    <img src="assets/images/vn.png" class="h-10 w-9 object-contain" />
-                    <img src="assets/images/uk.png" class="h-10 w-9 object-contain" />
-
-                    <img src="assets/images/fb.png" class="h-10 w-9 object-contain ipad-max:hidden" />
-                    <img src="assets/images/ytb.png" class="h-10 w-9 object-contain ipad-max:hidden" />
-                    <img src="assets/images/wifi.png" class="h-10 w-9 object-contain ipad-max:hidden" />
-
-                    <button class="bg-[#E43959] text-white px-4 py-2 lg-max:px-3 lg-max:py-1.5 md-max:px-2 md-max:py-1
-                    rounded shadow hover:opacity-90 transition whitespace-nowrap font-normal">
-                        Đăng nhập
-                    </button>
-                </div>
-
-            </div>
-        </div>
-
-        <div id="main-nav" class="w-full bg-[#14212A] sticky top-0 z-50">
-            <nav class="max-w-[1200px] mx-auto flex justify-between h-14 items-center">
-
-                <button id="open-mobile-menu" class="lg:hidden text-white p-2">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
-                </button>
-
-                <ul class="hidden lg:flex items-center text-[13px] text-white font-bold uppercase h-full">
-
-                    <li class="relative group shrink-0 h-full">
-                        <a href="#" class="flex items-center px-4 h-full transition 
-                        group-hover:bg-[#E43959] group-hover:text-white">
-                            <i data-lucide="house" class="w-5 h-5 stroke-current"></i>
-                        </a>
-                    </li>
-
-                    <li class="relative group h-full flex items-center">
-                        <a href="gioi-thieu.html"
-                            class="flex items-center px-4 py-2 h-full transition group-hover:bg-[#E43959] group-hover:text-white">
-                            Giới thiệu
-                        </a>
-                    </li>
-                    <li class="relative group shrink-0 h-full">
-                        <a href="#"
-                            class="flex items-center px-4 py-2 h-full transition group-hover:bg-[#E43959] group-hover:text-white">
-                            Dự án
-                        </a>
-
-                        <ul class="absolute left-0 top-full w-64 bg-white font-medium text-black shadow-lg border z-50
-                        divide-y divide-gray-200 hidden group-hover:block">
-                            <li><a class="block px-4 py-2 hover:bg-[#E43959] hover:text-white">Biệt thự</a></li>
-                            <li><a class="block px-4 py-2 hover:bg-[#E43959] hover:text-white">Nhà phố</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="relative group shrink-0 h-full">
-                        <a href="#"
-                            class="flex items-center px-4 py-2 h-full transition group-hover:bg-[#E43959] group-hover:text-white">
-                            Thiết kế nhà đẹp
-                        </a>
-                    </li>
-
-                    <li class="relative group shrink-0 h-full">
-                        <a href="#"
-                            class="flex items-center px-4 py-2 h-full transition group-hover:bg-[#E43959] group-hover:text-white">
-                            Bảng báo giá
-                        </a>
-                    </li>
-                    <li class="relative group shrink-0 h-full">
-                        <a href="#"
-                            class="flex items-center px-4 py-2 h-full transition group-hover:bg-[#E43959] group-hover:text-white">Tin
-                            tức
-                        </a>
-
-                    </li>
-                    <li class="relative group shrink-0 h-full">
-                        <a href="#"
-                            class="flex items-center px-4 py-2 h-full transition group-hover:bg-[#E43959] group-hover:text-white">Liên
-                            hệ
-                        </a>
-                    </li>
-                </ul>
-
-                <div class="hidden lg:block relative w-[170px] px-2">
-                    <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"></i>
-                    <input type="text" class="w-full h-[20px] pl-9 pr-4 py-2 rounded border border-gray-300 shadow-sm
-                                  focus:outline-none focus:ring-2" />
-                </div>
-
-                <div class="lg:hidden px-4">
-                    <a href="index.html" class="block">
-                        <img src="assets/images/logo.png" alt="AMU Logo" class="h-10 w-auto object-contain">
-                    </a>
-                </div>
-            </nav>
-        </div>
-
-        <div id="mobile-overlay" class="fixed inset-0 bg-black/50 z-[60] hidden transition-opacity"></div>
-
-        <div id="mobile-drawer"
-            class="fixed top-0 left-0 w-[280px] h-full bg-[#14212A] z-[70] transform -translate-x-full transition-transform duration-300 overflow-y-auto">
-
-            <div class="flex items-center justify-between p-4 border-b border-gray-700">
-                <span class="text-white font-bold text-lg">MENU</span>
-                <button id="close-mobile-menu" class="text-white p-1 hover:bg-white/10 rounded">
-                    <i data-lucide="x" class="w-6 h-6"></i>
-                </button>
-            </div>
-
-            <div class="p-4">
-                <div class="relative">
-                    <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"></i>
-                    <input type="text"
-                        class="w-full pl-9 pr-4 py-2 rounded bg-[#0C1419] text-white border border-gray-700 focus:outline-none focus:border-[#E43959]"
-                        placeholder="Tìm kiếm...">
-                </div>
-            </div>
-
-            <ul class="text-white font-bold uppercase text-[14px]">
-
-                <li>
-                    <a href="#" class="block px-5 py-3 border-b border-gray-800 hover:text-[#E43959]">
-                        <i data-lucide="house" class="w-4 h-4 inline mr-2"></i> Trang chủ
-                    </a>
-                </li>
-
-                <li class="border-b border-gray-800">
-                    <details class="group">
-                        <summary
-                            class="px-5 py-3 flex justify-between items-center cursor-pointer hover:text-[#E43959] list-none">
-                            Giới thiệu
-                            <i data-lucide="chevron-down"
-                                class="w-4 h-4 transition-transform group-open:rotate-180"></i>
-                        </summary>
-                        <ul class="bg-[#0C1419] text-gray-300 text-[13px] normal-case font-normal">
-                            <li><a href="#"
-                                    class="block px-8 py-2.5 hover:text-white border-l-2 border-transparent hover:border-[#E43959]">Về
-                                    chúng tôi</a></li>
-                            <li><a href="#"
-                                    class="block px-8 py-2.5 hover:text-white border-l-2 border-transparent hover:border-[#E43959]">Cơ
-                                    cấu tổ chức</a></li>
-                            <li><a href="#"
-                                    class="block px-8 py-2.5 hover:text-white border-l-2 border-transparent hover:border-[#E43959]">Đối
-                                    tác</a></li>
-                        </ul>
-                    </details>
-                </li>
-
-                <li class="border-b border-gray-800">
-                    <details class="group">
-                        <summary
-                            class="px-5 py-3 flex justify-between items-center cursor-pointer hover:text-[#E43959] list-none">
-                            Dự án thầu
-                            <i data-lucide="chevron-down"
-                                class="w-4 h-4 transition-transform group-open:rotate-180"></i>
-                        </summary>
-                        <ul class="bg-[#0C1419] text-gray-300 text-[13px] normal-case font-normal">
-                            <li><a href="#" class="block px-8 py-2.5 hover:text-white">Thông báo mời thầu</a></li>
-                            <li><a href="#" class="block px-8 py-2.5 hover:text-white">Kế hoạch lựa chọn</a></li>
-                        </ul>
-                    </details>
-                </li>
-
-                <li><a href="#" class="block px-5 py-3 border-b border-gray-800 hover:text-[#E43959]">Liên hệ</a></li>
-            </ul>
-        </div>
-    </header>
-
-    <main>
+    <main class="relative z-10">
         <section class="hero relative h-[660px] overflow-hidden">
             <div class="swiper mySwiper h-full w-full">
                 <div class="swiper-wrapper">
@@ -346,86 +74,104 @@
             </div>
         </section>
 
-        <section class="benefit-section container max-w-[1200px] mx-auto py-10">
-            <div class="text-center mb-12">
-                <h2 class="reveal-title uppercase text-red-600 text-3xl md:text-4xl font-extrabold mb-2">
-                    LỢI ÍCH
+        <section class="benefit-section relative max-w-[1200px] mx-auto py-24 px-4 overflow-hidden">
+            <div class="text-center mb-16 relative z-10">
+                <h2 class="reveal-title uppercase text-[#D00A2B] text-sm tracking-[0.3em] font-bold mb-4">
+                    Giá trị cốt lõi
                 </h2>
-
-                <p class="reveal-subtitle uppercase text-lg md:text-xl font-bold text-gray-800">
-                    KHI SỬ DỤNG HỆ THỐNG THẦU XÂY DỰNG
+                <p
+                    class="reveal-subtitle uppercase text-3xl md:text-4xl font-black text-white leading-tight tracking-tight">
+                    Lợi ích khi hợp tác cùng <br> <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-white to-zinc-500">AMU
+                        Construction</span>
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
 
-                <div class="benefit-card bg-[#FAF9F9] p-8 border border-gray-100 shadow-[4px_4px_4px_rgba(0,0,0,0.26)]
-                transition-all duration-200 text-center group hover:-translate-y-1 hover:shadow-lg">
+                <div
+                    class="benefit-card group bg-white/[0.02] backdrop-blur-sm p-10 border border-white/5 
+                    rounded-2xl transition-all duration-500 hover:bg-white/[0.05] hover:border-[#D00A2B]/30 hover:-translate-y-2">
 
-                    <div class="mb-6 flex justify-center">
+                    <div class="mb-8 relative inline-block">
+                        <div
+                            class="absolute inset-0 bg-[#D00A2B]/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                        </div>
                         <i data-lucide="truck"
-                            class="w-16 h-16 text-[#D00A2B] stroke-[1.5] transition-transform group-hover:scale-110">
-                        </i>
+                            class="relative w-12 h-12 text-[#D00A2B] stroke-[1.2] transition-transform duration-500 group-hover:scale-110"></i>
                     </div>
 
-                    <h3 class="text-xl font-bold text-[#D00A2B] mb-3 leading-snug uppercase">
-                        Năng lực thiết bị hùng hậu
+                    <h3 class="text-white text-lg font-bold mb-4 uppercase tracking-wider">
+                        Thiết bị hùng hậu
                     </h3>
 
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Sở hữu hệ thống máy móc thi công hiện đại và mạng lưới đối tác cung ứng vật tư chiến lược, đảm
-                        bảo tiến độ triển khai dự án thần tốc.
+                    <p class="text-zinc-400 text-[14px] leading-relaxed font-light">
+                        Sở hữu hệ thống máy móc hiện đại và mạng lưới đối tác chiến lược, cam kết tiến độ thi công thần
+                        tốc và chính xác.
                     </p>
+
+                    <div class="mt-6 w-0 h-[1px] bg-[#D00A2B] group-hover:w-full transition-all duration-700"></div>
                 </div>
 
-                <div class="benefit-card bg-[#FAF9F9] p-8 border border-gray-100 shadow-[4px_4px_4px_rgba(0,0,0,0.26)]
-                transition-all duration-200 text-center group hover:-translate-y-1 hover:shadow-lg">
+                <div
+                    class="benefit-card group bg-white/[0.02] backdrop-blur-sm p-10 border border-white/5 
+                    rounded-2xl transition-all duration-500 hover:bg-white/[0.05] hover:border-[#D00A2B]/30 hover:-translate-y-2">
 
-                    <div class="mb-6 flex justify-center">
+                    <div class="mb-8 relative inline-block">
+                        <div
+                            class="absolute inset-0 bg-[#D00A2B]/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                        </div>
                         <i data-lucide="shield-check"
-                            class="w-16 h-16 text-[#D00A2B] stroke-[1.5] transition-transform group-hover:scale-110">
-                        </i>
+                            class="relative w-12 h-12 text-[#D00A2B] stroke-[1.2] transition-transform duration-500 group-hover:scale-110"></i>
                     </div>
 
-                    <h3 class="text-xl font-bold text-[#D00A2B] mb-3 leading-snug">
-                        Quản lý chất lượng 5 sao
+                    <h3 class="text-white text-lg font-bold mb-4 uppercase tracking-wider">
+                        Chất lượng 5 sao
                     </h3>
 
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Áp dụng tiêu chuẩn ISO và công nghệ quản lý thi công tiên tiến, giúp tối ưu chi phí nhưng vẫn
-                        đảm bảo độ bền vững tuyệt đối cho công trình.
+                    <p class="text-zinc-400 text-[14px] leading-relaxed font-light">
+                        Áp dụng tiêu chuẩn ISO quốc tế và công nghệ quản lý tiên tiến, đảm bảo sự bền vững vĩnh cửu cho
+                        mọi công trình.
                     </p>
+
+                    <div class="mt-6 w-0 h-[1px] bg-[#D00A2B] group-hover:w-full transition-all duration-700"></div>
                 </div>
 
-                <div class="benefit-card bg-[#FAF9F9] p-8 border border-gray-100 shadow-[4px_4px_4px_rgba(0,0,0,0.26)]
-                transition-all duration-200 text-center group hover:-translate-y-1 hover:shadow-lg">
+                <div
+                    class="benefit-card group bg-white/[0.02] backdrop-blur-sm p-10 border border-white/5 
+                    rounded-2xl transition-all duration-500 hover:bg-white/[0.05] hover:border-[#D00A2B]/30 hover:-translate-y-2">
 
-                    <div class="mb-6 flex justify-center">
+                    <div class="mb-8 relative inline-block">
+                        <div
+                            class="absolute inset-0 bg-[#D00A2B]/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                        </div>
                         <i data-lucide="file-text"
-                            class="w-16 h-16 text-[#D00A2B] stroke-[1.5] transition-transform group-hover:scale-110">
-                        </i>
+                            class="relative w-12 h-12 text-[#D00A2B] stroke-[1.2] transition-transform duration-500 group-hover:scale-110"></i>
                     </div>
 
-                    <h3 class="text-xl font-bold text-[#D00A2B] mb-3 leading-snug">
-                        Hồ sơ năng lực minh bạch
+                    <h3 class="text-white text-lg font-bold mb-4 uppercase tracking-wider">
+                        Năng lực minh bạch
                     </h3>
 
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Đầy đủ chứng chỉ hành nghề Hạng I, năng lực tài chính vững mạnh và lịch sử đấu thầu sạch, là đối
-                        tác tin cậy của các chủ đầu tư lớn.
+                    <p class="text-zinc-400 text-[14px] leading-relaxed font-light">
+                        Chứng chỉ Hạng I cùng năng lực tài chính vững mạnh, AMU là đối tác chiến lược tin cậy của các
+                        chủ đầu tư lớn.
                     </p>
+
+                    <div class="mt-6 w-0 h-[1px] bg-[#D00A2B] group-hover:w-full transition-all duration-700"></div>
                 </div>
 
             </div>
         </section>
 
-        <section class="process-section relative py-12 bg-white overflow-hidden font-sans h-[600px]
+        <section class="process-section relative py-12 bg-[#0A0C10] overflow-hidden font-sans h-[600px]
             bg-[url('/assets/images/process.png')] bg-cover bg-center">
-            <div class="absolute inset-0 bg-white/85 z-0"></div>
+            <div class="absolute inset-0 bg-[#0A0C10]/90 z-0"></div>
+
             <div class="absolute inset-0 z-0 opacity-20 pointer-events-none">
                 <img src="https://www.transparenttextures.com/patterns/dot-grid.png"
                     class="w-full h-full object-cover opacity-30">
-                <div class="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white"></div>
+                <div class="absolute inset-0 bg-gradient-to-b from-[#0A0C10] via-transparent to-[#0A0C10]"></div>
             </div>
 
             <div class="container mx-auto px-4 relative z-10">
@@ -437,23 +183,25 @@
                 <div class="relative max-w-[1100px] mx-auto h-[500px] sm-max:hidden">
                     <svg class="sm-max:hidden block absolute top-0 left-0 w-full h-full pointer-events-none"
                         viewBox="0 0 1100 450" fill="none">
-                        <path d="M 100 150 H 250 V 330 H 450 V 70 H 650 V 330 H 850 V 150 H 1050 V 330" stroke="#FD3666"
+                        <path d="M 100 150 H 250 V 330 H 450 V 70 H 650 V 330 H 850 V 150 H 1050 V 330" stroke="#27272a"
                             stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
 
                         <path class="progress-path"
-                            d="M 100 150 H 250 V 330 H 450 V 70 H 650 V 330 H 850 V 150 H 1050 V 330" stroke="#2D9AFE"
-                            stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" pathLength="1" />
+                            d="M 100 150 H 250 V 330 H 450 V 70 H 650 V 330 H 850 V 150 H 1050 V 330" stroke="#C5A059"
+                            stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" pathLength="1"
+                            style="filter: drop-shadow(0 0 8px rgba(197, 160, 89, 0.6));" />
                     </svg>
 
-                    <div class="runner sm-max:hidden block"></div>
+                    <div class="runner sm-max:hidden block"
+                        style="background-color: #C5A059; box-shadow: 0 0 10px #C5A059;"></div>
 
                     <div class="absolute process-step top-[105px] left-0 flex flex-col gap-1 w-[100px] lg-max:w-[80px]">
                         <div class="shrink-0">
-                            <i data-lucide="user-plus" class="w-12 h-12 text-gray-700 lg-max:w-8 lg-max:h-8"></i>
+                            <i data-lucide="user-plus" class="w-12 h-12 text-[#C5A059] lg-max:w-8 lg-max:h-8"></i>
                         </div>
                         <div class="text-[16px] leading-snug w-full">
-                            <b class="block mb-0.5">Bước 1:</b>
-                            <p class="font-bold text-gray-800 text-md">Chuẩn bị lựa chọn nhà thầu (phê duyệt dự toán, kế
+                            <b class="block mb-0.5 text-[#D00A2B]">Bước 1:</b>
+                            <p class="font-bold text-zinc-100 text-md">Chuẩn bị lựa chọn nhà thầu (phê duyệt dự toán, kế
                                 hoạch, lập HSMT)</p>
                         </div>
                     </div>
@@ -461,21 +209,21 @@
                     <div
                         class="absolute process-step bottom-[70px] left-[240px] lg-max:left-[210px] flex items-center w-[220px]">
                         <div class="shrink-0 rounded-lg">
-                            <i data-lucide="folder-plus" class="w-12 h-12 lg-max lg-max text-gray-700"></i>
+                            <i data-lucide="folder-plus" class="w-12 h-12 lg-max lg-max text-[#C5A059]"></i>
                         </div>
                         <div class="px-2 min-h-10 leading-tight">
-                            <b class="text-[16px] block tracking-tight">Bước 2:</b>
-                            <p class="text-[16px] font-bold text-gray-800 tracking-tight">Mời thầu và phát hành HSMT</p>
+                            <b class="text-[16px] block tracking-tight text-[#D00A2B]">Bước 2:</b>
+                            <p class="text-[16px] font-bold text-zinc-100 tracking-tight">Mời thầu và phát hành HSMT</p>
                         </div>
                     </div>
 
                     <div class="absolute process-step top-4 left-[430px] lg-max:left-[400px] flex items-center">
                         <div class="shrink-0 rounded-lg">
-                            <i data-lucide="cloud-upload" class="w-12 h-12 text-gray-700"></i>
+                            <i data-lucide="cloud-upload" class="w-12 h-12 text-[#C5A059]"></i>
                         </div>
                         <div class="px-2 min-h-10 leading-tight">
-                            <b class="text-[16px] block tracking-tight">Bước 3:</b>
-                            <p class="text-[16px] font-bold text-gray-800 tracking-tight">
+                            <b class="text-[16px] block tracking-tight text-[#D00A2B]">Bước 3:</b>
+                            <p class="text-[16px] font-bold text-zinc-100 tracking-tight">
                                 Nhà thầu chuẩn bị và <br> nộp Hồ sơ dự thầu (HSDT)
                             </p>
                         </div>
@@ -483,11 +231,11 @@
 
                     <div class="absolute process-step bottom-[65px] left-[630px] lg-max:left-[580px] flex items-center">
                         <div class="shrink-0 rounded-lg">
-                            <i data-lucide="gavel" class="w-12 h-12 text-gray-700"></i>
+                            <i data-lucide="gavel" class="w-12 h-12 text-[#C5A059]"></i>
                         </div>
                         <div class="px-2 min-h-10 leading-tight">
-                            <b class="text-[16px] block tracking-tight">Bước 4:</b>
-                            <p class="text-[16px] font-bold text-gray-800 tracking-tight">
+                            <b class="text-[16px] block tracking-tight text-[#D00A2B]">Bước 4:</b>
+                            <p class="text-[16px] font-bold text-zinc-100 tracking-tight">
                                 Mở thầu <br> và Đánh giá HSDT
                             </p>
                         </div>
@@ -495,11 +243,11 @@
 
                     <div class="absolute process-step top-[90px] left-[840px] lg-max:left-[770px] flex items-center">
                         <div class="shrink-0 rounded-lg">
-                            <i data-lucide="users" class="w-12 h-12 lg-max:w-10 lg-max:h-10 text-gray-700"></i>
+                            <i data-lucide="users" class="w-12 h-12 lg-max:w-10 lg-max:h-10 text-[#C5A059]"></i>
                         </div>
                         <div class="px-2 min-h-10 leading-tight">
-                            <b class="text-[16px] block tracking-tight lg-max:text-[14px]">Bước 5:</b>
-                            <p class="text-[16px] font-bold text-gray-800 tracking-tight lg-max:text-[14px]">
+                            <b class="text-[16px] block tracking-tight lg-max:text-[14px] text-[#D00A2B]">Bước 5:</b>
+                            <p class="text-[16px] font-bold text-zinc-100 tracking-tight lg-max:text-[14px]">
                                 Thương thảo hợp đồng và Phê duyệt kết quả
                             </p>
                         </div>
@@ -508,64 +256,63 @@
                     <div class="absolute process-step bottom-[70px] left-[940px] lg-max:left-[860px] flex items-center w-[220px]
                     lg-max:w-[155px] lg-max:bottom-[60px]">
                         <div class="shrink-0 rounded-lg">
-                            <i data-lucide="handshake" class="w-12 h-12 lg-max:w-10 lg-max:h-10 text-gray-700"></i>
+                            <i data-lucide="handshake" class="w-12 h-12 lg-max:w-10 lg-max:h-10 text-[#C5A059]"></i>
                         </div>
                         <div class="px-2 min-h-10 leading-tight">
-                            <b class="text-[16px] block tracking-tight">Bước 6:</b>
-                            <p class="text-[16px] font-bold text-gray-800 tracking-tight">
+                            <b class="text-[16px] block tracking-tight text-[#D00A2B]">Bước 6:</b>
+                            <p class="text-[16px] font-bold text-zinc-100 tracking-tight">
                                 Hoàn thiện và ký kết hợp đồng
                             </p>
                         </div>
                     </div>
                 </div>
 
-                <!-- MOBILE VERSION -->
                 <div class="hidden sm-max:grid grid-cols-2 gap-6 px-4 mt-6 text-center">
 
                     <div class="flex process-step flex-col items-center gap-2">
-                        <i data-lucide="user-plus" class="w-10 h-10 text-gray-700"></i>
-                        <p class="font-bold">Bước 1</p>
-                        <span class="text-sm font-semibold text-gray-700">
+                        <i data-lucide="user-plus" class="w-10 h-10 text-[#C5A059]"></i>
+                        <p class="font-bold text-[#D00A2B]">Bước 1</p>
+                        <span class="text-sm font-semibold text-zinc-100">
                             Chuẩn bị lựa chọn nhà thầu
                         </span>
                     </div>
 
                     <div class="flex process-step flex-col items-center gap-2">
-                        <i data-lucide="folder-plus" class="w-10 h-10 text-gray-700"></i>
-                        <p class="font-bold">Bước 2</p>
-                        <span class="text-sm font-semibold text-gray-700">
+                        <i data-lucide="folder-plus" class="w-10 h-10 text-[#C5A059]"></i>
+                        <p class="font-bold text-[#D00A2B]">Bước 2</p>
+                        <span class="text-sm font-semibold text-zinc-100">
                             Mời thầu và phát hành HSMT
                         </span>
                     </div>
 
                     <div class="flex process-step flex-col items-center gap-2">
-                        <i data-lucide="cloud-upload" class="w-10 h-10 text-gray-700"></i>
-                        <p class="font-bold">Bước 3</p>
-                        <span class="text-sm font-semibold text-gray-700">
+                        <i data-lucide="cloud-upload" class="w-10 h-10 text-[#C5A059]"></i>
+                        <p class="font-bold text-[#D00A2B]">Bước 3</p>
+                        <span class="text-sm font-semibold text-zinc-100">
                             Nhà thầu chuẩn bị và nộp Hồ sơ dự thầu (HSDT)
                         </span>
                     </div>
 
                     <div class="flex process-step flex-col items-center gap-2">
-                        <i data-lucide="gavel" class="w-10 h-10 text-gray-700"></i>
-                        <p class="font-bold">Bước 4</p>
-                        <span class="text-sm font-semibold text-gray-700">
+                        <i data-lucide="gavel" class="w-10 h-10 text-[#C5A059]"></i>
+                        <p class="font-bold text-[#D00A2B]">Bước 4</p>
+                        <span class="text-sm font-semibold text-zinc-100">
                             Mở thầu và Đánh giá HSDT
                         </span>
                     </div>
 
                     <div class="flex process-step flex-col items-center gap-2">
-                        <i data-lucide="users" class="w-10 h-10 text-gray-700"></i>
-                        <p class="font-bold">Bước 5</p>
-                        <span class="text-sm font-semibold text-gray-700">
+                        <i data-lucide="users" class="w-10 h-10 text-[#C5A059]"></i>
+                        <p class="font-bold text-[#D00A2B]">Bước 5</p>
+                        <span class="text-sm font-semibold text-zinc-100">
                             Thương thảo hợp đồng (offline)
                         </span>
                     </div>
 
                     <div class="flex process-step flex-col items-center gap-2">
-                        <i data-lucide="handshake" class="w-10 h-10 text-gray-700"></i>
-                        <p class="font-bold">Bước 6</p>
-                        <span class="text-sm font-semibold text-gray-700">
+                        <i data-lucide="handshake" class="w-10 h-10 text-[#C5A059]"></i>
+                        <p class="font-bold text-[#D00A2B]">Bước 6</p>
+                        <span class="text-sm font-semibold text-zinc-100">
                             Hoàn thiện và ký kết hợp đồng
                         </span>
                     </div>
@@ -575,259 +322,456 @@
             </div>
         </section>
 
-        <section class="py-10 bg-white font-sans">
-            <div class="container mx-auto max-w-[1200px]">
+        <section class="py-24 bg-[#121418] font-sans relative overflow-hidden">
+            <div class="absolute inset-0 z-0 opacity-[0.03] pointer-events-none"
+                style="background-image: radial-gradient(#ffffff 0.5px, transparent 0.5px); background-size: 30px 30px;">
+            </div>
 
-                <div class="text-center mb-10 sm-max:mb-5">
-                    <h2
-                        class="reveal-title text-[#D00A2B] text-3xl md:text-4xl font-extrabold uppercase tracking-tighter">
-                        Ưu điểm nổi bật
+            <div class="container mx-auto max-w-[1200px] relative z-10 px-4">
+                <div class="text-center mb-16">
+                    <h2 class="reveal-title text-[#D00A2B] text-sm tracking-[0.4em] font-bold uppercase mb-3">
+                        Thế mạnh AMU
                     </h2>
-                    <p class="reveal-subtitle text-gray-800 font-bold text-lg uppercase mt-2">Của AMU Construction</p>
+                    <p class="reveal-subtitle text-white font-black text-3xl md:text-5xl uppercase tracking-tighter">
+                        Ưu điểm nổi bật <span class="text-[#C5A059]">.</span>
+                    </p>
                 </div>
 
-                <div class="flex flex-col lg:flex-row gap-12 items-start">
-
-                    <div class="advantage-wrapper w-full lg:w-[25%] space-y-8">
-
-                        <div class="advantage-card bg-[#FAF9F9] p-6 rounded-3xl flex items-center gap-5 transition-all h-[156px]
-                        shadow-[4px_4px_4px_0_rgba(0,0,0,0.26)]">
+                <div class="flex flex-col lg:flex-row gap-10 items-stretch">
+                    <div class="advantage-wrapper w-full lg:w-[30%] space-y-6">
+                        <div class="advantage-card group bg-white/[0.02] p-8 rounded-2xl flex flex-col gap-4 transition-all duration-500 
+                            border border-white/5 hover:border-[#C5A059]/40 hover:bg-white/[0.05]">
                             <div class="shrink-0">
-                                <i data-lucide="gavel" class="w-12 h-12 text-[#D00A2B] stroke-[1]"></i>
+                                <i data-lucide="gavel"
+                                    class="w-10 h-10 text-[#C5A059] stroke-[1.2] transition-transform group-hover:scale-110"></i>
                             </div>
-
-                            <p class="text-gray-700 font-semibold leading-snug">
-                                Giải pháp đấu thầu cạnh tranh, tối ưu hóa ngân sách đầu tư
+                            <p
+                                class="text-zinc-300 font-bold leading-snug text-lg group-hover:text-white transition-colors">
+                                Giải pháp đấu thầu cạnh tranh, tối ưu hóa ngân sách
                             </p>
+                            <div class="h-0.5 w-8 bg-[#D00A2B] group-hover:w-16 transition-all duration-500"></div>
                         </div>
 
-                        <div class="advantage-card bg-[#FAF9F9] p-6 rounded-3xl flex items-center gap-5 transition-all h-[156px]
-                        shadow-[4px_4px_4px_0_rgba(0,0,0,0.26)]">
+                        <div class="advantage-card group bg-white/[0.02] p-8 rounded-2xl flex flex-col gap-4 transition-all duration-500 
+                            border border-white/5 hover:border-[#C5A059]/40 hover:bg-white/[0.05]">
                             <div class="shrink-0">
-                                <i data-lucide="award" class="w-12 h-12 text-[#D00A2B] stroke-[1]"></i>
+                                <i data-lucide="award"
+                                    class="w-10 h-10 text-[#C5A059] stroke-[1.2] transition-transform group-hover:scale-110"></i>
                             </div>
-                            <p class="text-gray-700 font-semibold leading-snug">
-                                Cam kết tiến độ và chất lượng theo tiêu chuẩn quốc tế
+                            <p
+                                class="text-zinc-300 font-bold leading-snug text-lg group-hover:text-white transition-colors">
+                                Cam kết tiến độ và chất lượng chuẩn quốc tế
                             </p>
+                            <div class="h-0.5 w-8 bg-[#D00A2B] group-hover:w-16 transition-all duration-500"></div>
                         </div>
 
-                        <div class="advantage-card bg-[#FAF9F9] p-6 rounded-3xl flex items-center gap-5 transition-all h-[156px]
-                        shadow-[4px_4px_4px_0_rgba(0,0,0,0.26)]">
+                        <div class="advantage-card group bg-white/[0.02] p-8 rounded-2xl flex flex-col gap-4 transition-all duration-500 
+                            border border-white/5 hover:border-[#C5A059]/40 hover:bg-white/[0.05]">
                             <div class="shrink-0">
-                                <i data-lucide="users" class="w-12 h-12 text-[#D00A2B] stroke-[1]"></i>
+                                <i data-lucide="users"
+                                    class="w-10 h-10 text-[#C5A059] stroke-[1.2] transition-transform group-hover:scale-110"></i>
                             </div>
-                            <p class="text-gray-700 font-semibold leading-snug">
+                            <p
+                                class="text-zinc-300 font-bold leading-snug text-lg group-hover:text-white transition-colors">
                                 Đội ngũ chuyên gia dày dạn kinh nghiệm thực chiến
                             </p>
-                        </div>
-
-                    </div>
-
-                    <div class="advantage-video w-full lg:w-[75%]">
-                        <div class="relative bg-white overflow-hidden">
-
-                            <div class="w-full h-[500px] overflow-hidden bg-black relative">
-                                <video autoplay loop muted playsinline class="w-full h-full object-cover shadow-inner">
-                                    <source src="assets/videos/xaydung.mp4" type="video/mp4">
-                                </video>
-                            </div>
+                            <div class="h-0.5 w-8 bg-[#D00A2B] group-hover:w-16 transition-all duration-500"></div>
                         </div>
                     </div>
 
-                </div>
-            </div>
-        </section>
-
-        <section class="achievement-section py-8 bg-white font-sans">
-            <div class="container mx-auto px-4 max-w-[1200px]">
-                <div class="text-center mb-12">
-                    <h2 class="reveal-title text-[#D00A2B] text-4xl font-extrabold uppercase tracking-tighter">Thành tựu
-                    </h2>
-                    <p class="reveal-subtitle text-gray-800 font-extrabold mt-1 uppercase">AMU Construction đạt được</p>
-                </div>
-
-                <div class="swiper achievementSwiper overflow-hidden">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide flex flex-col items-center group cursor-pointer h-auto">
-                            <div
-                                class="w-full aspect-[16/10] bg-gray-100 rounded-[1.5rem] overflow-hidden shadow-sm transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-2">
-                                <img src="assets/images/villa-1.jpg" alt="Thành tựu 1"
-                                    class="w-full h-full object-cover">
-                            </div>
-                            <h2
-                                class="mt-6 text-start font-bold text-gray-900 leading-snug text-[17px] hover:text-[#D00A2B] transition-colors">
-                                Thi công trọn gói Biệt thự Tân cổ điển - Khu đô thị Vinhomes
-                            </h2>
-                        </div>
-
-                        <div class="swiper-slide flex flex-col items-center group cursor-pointer h-auto">
-                            <div
-                                class="w-full aspect-[16/10] bg-gray-100 rounded-[1.5rem] overflow-hidden shadow-sm transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-2">
-                                <img src="assets/images/villa-2.jpg" alt="Thành tựu 2"
-                                    class="w-full h-full object-cover">
-                            </div>
-                            <h2
-                                class="mt-6 text-start font-bold text-gray-900 leading-snug text-[18px] hover:text-[#D00A2B] transition-colors">
-                                Biệt thự nghỉ dưỡng phong cách Hiện đại (Luxury Villa) – Flamingo Đại Lải.
-                            </h2>
-                        </div>
-
-                        <div class="swiper-slide flex flex-col items-center group cursor-pointer h-auto">
-                            <div
-                                class="w-full aspect-[16/10] bg-gray-100 rounded-[1.5rem] overflow-hidden shadow-sm transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-2">
-                                <img src="assets/images/villa-3.jpg" alt="Thành tựu 3"
-                                    class="w-full h-full object-cover">
-                            </div>
-                            <h2
-                                class="mt-6 text-start font-bold text-gray-900 leading-snug text-[18px] hover:text-[#D00A2B] transition-colors">
-                                Trụ sở văn phòng làm việc hiện đại – Tòa nhà hạng A, trung tâm TP.HCM
-                            </h2>
-                        </div>
-
-                        <div class="swiper-slide flex flex-col items-center group cursor-pointer h-auto">
-                            <div
-                                class="w-full aspect-[16/10] bg-gray-100 rounded-[1.5rem] overflow-hidden shadow-sm transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-2">
-                                <img src="assets/images/villa-4.jpg" alt="Thành tựu 1"
-                                    class="w-full h-full object-cover">
-                            </div>
-                            <h2
-                                class="mt-6 text-start font-bold text-gray-900 leading-snug text-[17px] hover:text-[#D00A2B] transition-colors">
-                                Cải tạo nội thất căn hộ Penthouse cao cấp – Tòa nhà Landmark 81
-                            </h2>
-                        </div>
-                    </div>
-
-                    <div class="swiper-pagination !static mt-10"></div>
-                </div>
-            </div>
-        </section>
-
-        <section class="reveal-section relative py-12 lg:py-20 bg-[#F1F5F9] overflow-hidden font-sans">
-
-            <div class="blob-corner absolute -right-10 -bottom-10 lg:-right-20 lg:-bottom-20 w-[200px] h-[200px] lg:w-[400px]
-            lg:h-[400px] bg-[#D00A2B] rounded-full opacity-100 z-0 transition-all duration-500">
-            </div>
-
-            <div class="blob-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] lg:w-[600px]
-            lg:h-[600px] bg-red-100 rounded-full opacity-50 z-0">
-            </div>
-
-            <div class="container mx-auto max-w-[1200px] px-4 relative z-10">
-                <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
-
-                    <div class="w-full lg:w-[70%] text-start lg:text-left">
-
-                        <h2
-                            class="reveal-title text-[#D00A2B] text-xl md:text-3xl font-bold uppercase tracking-tight mb-2">
-                            Gia nhập đội ngũ
-                        </h2>
-
-                        <h3
-                            class="reveal-subtitle text-[#D00A2B] text-3xl md:text-5xl font-black uppercase mb-4 lg:mb-6 leading-tight tracking-tighter">
-                            Đối tác thi công chiến lược
-                        </h3>
-
-                        <p
-                            class="reveal-typewriter text-gray-600 text-base md:text-lg leading-relaxed mb-8 lg:mb-10 max-w-[600px] mx-auto lg:mx-0">
-                            Chúng tôi liên tục tìm kiếm các nhà thầu phụ và nhà cung cấp vật tư uy tín để cùng kiến tạo
-                            những công trình đẳng cấp.
-                            Trở thành đối tác chiến lược để tiếp cận nguồn dự án dồi dào, quy trình đấu thầu minh bạch
-                            và cơ hội khẳng định năng lực thi công chuyên nghiệp.
-                        </p>
-
-                        <a href="#" class="reveal-btn inline-block bg-[#D00A2B] text-white px-8 py-3 lg:px-10 lg:py-4 rounded-full
-                            font-bold text-base lg:text-lg uppercase shadow-lg transition-all hover:bg-red-700 hover:shadow-xl
-                            hover:-translate-y-1 ring-4 ring-red-100/50">
-                            Gửi hồ sơ năng lực
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <section class="py-16 bg-white font-sans">
-            <div class="container mx-auto max-w-[1200px] px-4">
-
-                <div class="text-center mb-12">
-                    <h2 class="reveal-title text-[#D00A2B] text-5xl font-black uppercase tracking-tighter">Bản tin</h2>
-                    <p class="reveal-subtitle text-gray-800 font-bold uppercase text-lg tracking-[0.2em] mt-1">AMU
-                        CONSTRUCTION</p>
-                </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-
-                    <div class="lg:col-span-7 group cursor-pointer reveal-left">
+                    <div class="advantage-video w-full lg:w-[70%] relative group">
                         <div
-                            class="relative w-full aspect-[16/9] rounded-[2rem] overflow-hidden shadow-lg border border-gray-100">
-                            <img src="assets/images/new-1.jpg"
-                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                            class="absolute -inset-1 border border-[#C5A059]/20 rounded-[2.5rem] pointer-events-none group-hover:border-[#C5A059]/40 transition-colors">
+                        </div>
+
+                        <div
+                            class="relative w-full aspect-video md:aspect-auto md:h-full rounded-[2rem] overflow-hidden bg-black shadow-2xl border-4 border-[#1A1D23]">
+
                             <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-8">
-                                <h3 class="text-white text-xl md:text-2xl font-bold leading-tight">
-                                   Top 5 xu hướng thiết kế Biệt thự bền vững (Green Architecture) dẫn đầu năm 2026
-                                </h3>
-                                <div class="flex items-center gap-2 text-white/80 text-sm mt-3">
-                                    <i data-lucide="calendar" class="w-4 h-4"></i>
-                                    <span>27/12/2025</span>
+                                class="absolute inset-0 z-10 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none">
+                            </div>
+
+                            <div
+                                class="absolute top-4 left-4 md:top-6 md:left-6 z-20 flex items-center gap-2 bg-black/40 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
+                                <span class="w-2 h-2 bg-[#D00A2B] rounded-full animate-pulse"></span>
+                                <span
+                                    class="text-white text-[9px] md:text-[10px] font-bold uppercase tracking-widest">AMU
+                                    Process Preview</span>
+                            </div>
+
+                            <video autoplay loop muted playsinline
+                                class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-1000">
+                                <source src="assets/videos/xaydung.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="achievement-section py-24 bg-[#0A0C10] font-sans relative overflow-hidden">
+            <div class="absolute inset-0 z-0 opacity-[0.03] pointer-events-none"
+                style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 50px 50px;">
+            </div>
+
+            <div class="container mx-auto px-4 max-w-[1200px] relative z-10">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-6">
+                    <div class="max-w-xl">
+                        <h2 class="reveal-title text-[#D00A2B] text-sm tracking-[0.4em] font-bold uppercase mb-4">Dấu ấn
+                            công trình</h2>
+                        <p
+                            class="reveal-subtitle text-white font-black text-4xl md:text-6xl uppercase tracking-tighter leading-none">
+                            Thành tựu <span class="text-[#C5A059]">AMU</span>
+                        </p>
+                    </div>
+                    <div class="text-right hidden md:block">
+                        <span class="text-zinc-800 text-8xl font-black leading-none uppercase">08+</span>
+                    </div>
+                </div>
+
+                <div class="swiper achievementSwiper overflow-visible">
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide group cursor-pointer h-auto">
+                            <div
+                                class="relative flex flex-col h-full bg-[#14161A] border border-white/5 transition-all duration-500 hover:border-[#C5A059]/40">
+
+                                <div class="relative w-full aspect-[4/5] overflow-hidden">
+                                    <img src="assets/images/villa-1.jpg" alt="Villa 1"
+                                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+
+                                    <div
+                                        class="absolute top-0 left-0 bg-[#D00A2B] text-white text-xs font-bold px-4 py-2">
+                                        PROJECT 01
+                                    </div>
+
+                                    <div
+                                        class="absolute bottom-4 right-4 bg-white/10 backdrop-blur-md px-3 py-1 border border-white/10">
+                                        <span
+                                            class="text-[10px] text-white uppercase font-bold tracking-widest">Done</span>
+                                    </div>
+                                </div>
+
+                                <div class="p-8 flex-grow">
+                                    <span
+                                        class="text-[#C5A059] text-[10px] font-black uppercase tracking-[0.3em] mb-4 block">Residential</span>
+                                    <h3
+                                        class="text-white font-bold text-2xl leading-tight mb-8 group-hover:text-[#C5A059] transition-colors">
+                                        Biệt thự Tân cổ điển Vinhomes
+                                    </h3>
+
+                                    <div class="grid grid-cols-2 border-t border-white/5 pt-6 gap-4">
+                                        <div class="space-y-1">
+                                            <p class="text-[10px] text-zinc-500 uppercase">Quy mô</p>
+                                            <p class="text-xs text-zinc-200 font-bold">450m² / 3 Tầng</p>
+                                        </div>
+                                        <div class="space-y-1">
+                                            <p class="text-[10px] text-zinc-500 uppercase">Vị trí</p>
+                                            <p class="text-xs text-zinc-200 font-bold">Long Biên, HN</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-10">
+                                        <a href="#"
+                                            class="inline-flex items-center gap-4 text-white text-[11px] font-black uppercase tracking-widest group/btn">
+                                            <span
+                                                class="w-10 h-[1px] bg-[#D00A2B] transition-all group-hover/btn:w-16"></span>
+                                            Xem dự án
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
+                        <div class="swiper-slide group cursor-pointer h-auto">
+                            <div
+                                class="relative flex flex-col h-full bg-[#14161A] border border-white/5 transition-all duration-500 hover:border-[#C5A059]/40">
+
+                                <div class="relative w-full aspect-[4/5] overflow-hidden">
+                                    <img src="assets/images/villa-2.jpg" alt="Villa 1"
+                                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+
+                                    <div
+                                        class="absolute top-0 left-0 bg-[#D00A2B] text-white text-xs font-bold px-4 py-2">
+                                        PROJECT 01
+                                    </div>
+
+                                    <div
+                                        class="absolute bottom-4 right-4 bg-white/10 backdrop-blur-md px-3 py-1 border border-white/10">
+                                        <span
+                                            class="text-[10px] text-white uppercase font-bold tracking-widest">Done</span>
+                                    </div>
+                                </div>
+
+                                <div class="p-8 flex-grow">
+                                    <span
+                                        class="text-[#C5A059] text-[10px] font-black uppercase tracking-[0.3em] mb-4 block">Residential</span>
+                                    <h3
+                                        class="text-white font-bold text-2xl leading-tight mb-8 group-hover:text-[#C5A059] transition-colors">
+                                        Biệt thự Tân cổ điển Vinhomes
+                                    </h3>
+
+                                    <div class="grid grid-cols-2 border-t border-white/5 pt-6 gap-4">
+                                        <div class="space-y-1">
+                                            <p class="text-[10px] text-zinc-500 uppercase">Quy mô</p>
+                                            <p class="text-xs text-zinc-200 font-bold">450m² / 3 Tầng</p>
+                                        </div>
+                                        <div class="space-y-1">
+                                            <p class="text-[10px] text-zinc-500 uppercase">Vị trí</p>
+                                            <p class="text-xs text-zinc-200 font-bold">Long Biên, HN</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-10">
+                                        <a href="#"
+                                            class="inline-flex items-center gap-4 text-white text-[11px] font-black uppercase tracking-widest group/btn">
+                                            <span
+                                                class="w-10 h-[1px] bg-[#D00A2B] transition-all group-hover/btn:w-16"></span>
+                                            Xem dự án
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide group cursor-pointer h-auto">
+                            <div
+                                class="relative flex flex-col h-full bg-[#14161A] border border-white/5 transition-all duration-500 hover:border-[#C5A059]/40">
+
+                                <div class="relative w-full aspect-[4/5] overflow-hidden">
+                                    <img src="assets/images/villa-3.jpg" alt="Villa 1"
+                                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+
+                                    <div
+                                        class="absolute top-0 left-0 bg-[#D00A2B] text-white text-xs font-bold px-4 py-2">
+                                        PROJECT 01
+                                    </div>
+
+                                    <div
+                                        class="absolute bottom-4 right-4 bg-white/10 backdrop-blur-md px-3 py-1 border border-white/10">
+                                        <span
+                                            class="text-[10px] text-white uppercase font-bold tracking-widest">Done</span>
+                                    </div>
+                                </div>
+
+                                <div class="p-8 flex-grow">
+                                    <span
+                                        class="text-[#C5A059] text-[10px] font-black uppercase tracking-[0.3em] mb-4 block">Residential</span>
+                                    <h3
+                                        class="text-white font-bold text-2xl leading-tight mb-8 group-hover:text-[#C5A059] transition-colors">
+                                        Biệt thự Tân cổ điển Vinhomes
+                                    </h3>
+
+                                    <div class="grid grid-cols-2 border-t border-white/5 pt-6 gap-4">
+                                        <div class="space-y-1">
+                                            <p class="text-[10px] text-zinc-500 uppercase">Quy mô</p>
+                                            <p class="text-xs text-zinc-200 font-bold">450m² / 3 Tầng</p>
+                                        </div>
+                                        <div class="space-y-1">
+                                            <p class="text-[10px] text-zinc-500 uppercase">Vị trí</p>
+                                            <p class="text-xs text-zinc-200 font-bold">Long Biên, HN</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-10">
+                                        <a href="#"
+                                            class="inline-flex items-center gap-4 text-white text-[11px] font-black uppercase tracking-widest group/btn">
+                                            <span
+                                                class="w-10 h-[1px] bg-[#D00A2B] transition-all group-hover/btn:w-16"></span>
+                                            Xem dự án
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide group cursor-pointer h-auto">
+                            <div
+                                class="relative flex flex-col h-full bg-[#14161A] border border-white/5 transition-all duration-500 hover:border-[#C5A059]/40">
+
+                                <div class="relative w-full aspect-[4/5] overflow-hidden">
+                                    <img src="assets/images/villa-4.jpg" alt="Villa 1"
+                                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+
+                                    <div
+                                        class="absolute top-0 left-0 bg-[#D00A2B] text-white text-xs font-bold px-4 py-2">
+                                        PROJECT 01
+                                    </div>
+
+                                    <div
+                                        class="absolute bottom-4 right-4 bg-white/10 backdrop-blur-md px-3 py-1 border border-white/10">
+                                        <span
+                                            class="text-[10px] text-white uppercase font-bold tracking-widest">Done</span>
+                                    </div>
+                                </div>
+
+                                <div class="p-8 flex-grow">
+                                    <span
+                                        class="text-[#C5A059] text-[10px] font-black uppercase tracking-[0.3em] mb-4 block">Residential</span>
+                                    <h3
+                                        class="text-white font-bold text-2xl leading-tight mb-8 group-hover:text-[#C5A059] transition-colors">
+                                        Biệt thự Tân cổ điển Vinhomes
+                                    </h3>
+
+                                    <div class="grid grid-cols-2 border-t border-white/5 pt-6 gap-4">
+                                        <div class="space-y-1">
+                                            <p class="text-[10px] text-zinc-500 uppercase">Quy mô</p>
+                                            <p class="text-xs text-zinc-200 font-bold">450m² / 3 Tầng</p>
+                                        </div>
+                                        <div class="space-y-1">
+                                            <p class="text-[10px] text-zinc-500 uppercase">Vị trí</p>
+                                            <p class="text-xs text-zinc-200 font-bold">Long Biên, HN</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-10">
+                                        <a href="#"
+                                            class="inline-flex items-center gap-4 text-white text-[11px] font-black uppercase tracking-widest group/btn">
+                                            <span
+                                                class="w-10 h-[1px] bg-[#D00A2B] transition-all group-hover/btn:w-16"></span>
+                                            Xem dự án
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
-                    <div class="lg:col-span-5 flex flex-col gap-6 reveal-right">
-
-                        <div class="flex gap-6 group cursor-pointer items-start">
-                            <div
-                                class="w-48 aspect-video shrink-0 rounded-2xl overflow-hidden shadow-md border border-gray-100">
-                                <img src="assets/images/new.png"
-                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                            </div>
-                            <div class="flex-1 pt-1">
-                                <h4
-                                    class="text-gray-900 font-bold text-lg leading-snug group-hover:text-[#D00A2B] transition-colors line-clamp-3">
-                                    Ứng dụng bê tông siêu nhẹ và vật liệu xanh trong thi công nhà phố – Giải pháp tối ưu chi phí và thời gian
-                                </h4>
-                                <p class="text-gray-400 text-sm mt-3 flex items-center gap-2">
-                                    <i data-lucide="clock" class="w-4 h-4"></i> 09:14 22/12/2025
-                                </p>
-                            </div>
+                    <div class="mt-16 flex items-center justify-between border-t border-white/5 pt-8">
+                        <div class="swiper-pagination !static !w-auto text-zinc-500 text-sm font-bold"></div>
+                        <div class="flex gap-4">
+                            <div class="swiper-prev cursor-pointer hover:text-[#C5A059] transition-colors"><i
+                                    data-lucide="arrow-left"></i></div>
+                            <div class="swiper-next cursor-pointer hover:text-[#C5A059] transition-colors"><i
+                                    data-lucide="arrow-right"></i></div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                        <div class="flex gap-6 group cursor-pointer items-start border-t border-gray-100">
-                            <div
-                                class="w-48 aspect-video shrink-0 rounded-2xl overflow-hidden shadow-md border border-gray-100">
-                                <img src="assets/images/new-2.jpg"
-                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+        <section
+            class="reveal-section relative min-h-[600px] flex items-stretch bg-[#0A0C10] font-sans overflow-hidden">
+            <div class="hidden lg:block w-1/2 relative overflow-hidden group">
+                <img src="assets/images/construction-site.jpg"
+                    class="w-full h-full object-cover grayscale-[50%] group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
+                    alt="AMU Site">
+                <div class="absolute inset-0 bg-gradient-to-r from-transparent to-[#0A0C10]"></div>
+
+                <div class="absolute bottom-10 left-10 p-6 bg-black/40 backdrop-blur-md border-l-4 border-[#D00A2B]">
+                    <span class="text-white font-black text-4xl block">500+</span>
+                    <span class="text-[#C5A059] text-[10px] uppercase font-bold tracking-widest">Đối tác đã tin
+                        tưởng</span>
+                </div>
+            </div>
+
+            <div class="w-full lg:w-1/2 flex flex-col justify-center p-8 lg:p-20 relative z-10">
+                <div class="max-w-md">
+                    <h2 class="reveal-title text-[#D00A2B] text-xs tracking-[0.4em] font-bold uppercase mb-4">Hợp tác
+                        cùng AMU</h2>
+                    <h3
+                        class="reveal-subtitle text-white text-4xl lg:text-5xl font-black uppercase mb-8 leading-tight tracking-tighter">
+                        Mở rộng <span class="text-[#C5A059]">cơ hội</span> thi công
+                    </h3>
+                    <p class="reveal-typewriter text-zinc-400 text-sm leading-relaxed mb-10">
+                        Chúng tôi cung cấp môi trường đấu thầu công bằng, thanh toán minh bạch và nguồn dự án Villa cao
+                        cấp dồi dào cho các đơn vị có năng lực thực sự.
+                    </p>
+
+                    <a href="#"
+                        class="reveal-btn group flex items-center gap-6 text-white uppercase text-xs font-black tracking-[0.3em]">
+                        <span
+                            class="px-8 py-4 bg-[#D00A2B] rounded-full group-hover:shadow-[0_0_20px_rgba(208,10,43,0.4)] transition-all">Gửi
+                            hồ sơ ngay</span>
+                        <i data-lucide="chevron-right"
+                            class="w-5 h-5 text-[#C5A059] group-hover:translate-x-2 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="news-section py-24 bg-[#0A0C10] font-sans relative overflow-hidden">
+            <div class="absolute inset-0 z-0 opacity-[0.03] pointer-events-none"
+                style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 50px 50px;">
+            </div>
+
+            <div class="container mx-auto max-w-[1200px] px-4 relative z-10">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                    <div class="max-w-xl">
+                        <h2 class="reveal-title text-[#D00A2B] text-sm tracking-[0.4em] font-bold uppercase mb-4">Góc
+                            nhìn chuyên gia</h2>
+                        <p
+                            class="reveal-subtitle text-white font-black text-4xl md:text-6xl uppercase tracking-tighter leading-none">
+                            Bản tin <span class="text-[#C5A059]">AMU</span>
+                        </p>
+                    </div>
+                    <a href="#"
+                        class="text-zinc-500 hover:text-[#D00A2B] text-[10px] uppercase font-black tracking-widest transition-colors flex items-center gap-3 group">
+                        Xem tất cả bài viết
+                        <span
+                            class="w-12 h-[1px] bg-zinc-800 group-hover:bg-[#D00A2B] group-hover:w-16 transition-all"></span>
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 h-auto md:h-[600px]">
+
+                    <div
+                        class="md:col-span-2 md:row-span-2 relative group cursor-pointer overflow-hidden rounded-[2.5rem] border border-white/5 shadow-2xl reveal-left">
+                        <img src="assets/images/new-1.jpg"
+                            class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 grayscale-[30%] group-hover:grayscale-0">
+
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-[#0A0C10] via-[#0A0C10]/20 to-transparent flex flex-col justify-end p-10">
+                            <div class="mb-6 flex items-center gap-3">
+                                <span
+                                    class="bg-[#D00A2B] text-white text-[9px] font-black px-3 py-1 rounded-sm uppercase tracking-widest">Tiêu
+                                    điểm</span>
+                                <span class="text-zinc-400 text-[10px] uppercase font-bold tracking-widest">27 Dec
+                                    2025</span>
                             </div>
-                            <div class="flex-1 pt-1">
-                                <h4
-                                    class="text-gray-900 font-bold text-lg leading-snug group-hover:text-[#D00A2B] transition-colors line-clamp-3">
-                                    Phong cách kiến trúc Minimalism (Tối giản) – Tại sao vẫn là lựa chọn số 1 của các chủ đầu tư trẻ?
-                                </h4>
-                                <p class="text-gray-400 text-sm mt-3 flex items-center gap-2">
-                                    <i data-lucide="clock" class="w-4 h-4"></i> 17:49 17/10/2025
-                                </p>
-                            </div>
+                            <h3
+                                class="text-white text-3xl md:text-5xl font-black uppercase leading-[0.9] tracking-tighter group-hover:text-[#C5A059] transition-colors">
+                                Top 5 xu hướng thiết kế <br> Biệt thự bền vững 2026
+                            </h3>
+                            <p
+                                class="text-zinc-400 mt-6 max-w-md text-sm leading-relaxed opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                                Khám phá những giải pháp kiến trúc xanh, tiết kiệm năng lượng đang trở thành chuẩn mực
+                                mới cho giới thượng lưu.
+                            </p>
                         </div>
+                    </div>
 
-                        <div class="flex gap-6 group cursor-pointer items-start border-t border-gray-100">
-                            <div
-                                class="w-48 aspect-video shrink-0 rounded-2xl overflow-hidden shadow-md border border-gray-100">
-                                <img src="assets/images/new-3.jpg"
-                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                            </div>
-                            <div class="flex-1 pt-1">
-                                <h4
-                                    class="text-gray-900 font-bold text-lg leading-snug group-hover:text-[#D00A2B] transition-colors line-clamp-3">
-                                    Nhà thông minh (Smart Home) thế hệ mới: Khi công nghệ AI tham gia vào vận hành và an ninh công trình
-                                </h4>
-                                <p class="text-gray-400 text-sm mt-3 flex items-center gap-2">
-                                    <i data-lucide="clock" class="w-4 h-4"></i> 12:27 27/08/2025
-                                </p>
-                            </div>
+                    <div
+                        class="relative group cursor-pointer overflow-hidden rounded-[2rem] border border-white/5 bg-[#14161A] p-6 flex flex-col justify-between reveal-right">
+                        <div class="w-full aspect-video rounded-xl overflow-hidden mb-6">
+                            <img src="assets/images/new.png"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                         </div>
+                        <div>
+                            <span class="text-[#C5A059] text-[9px] font-black uppercase tracking-widest block mb-3">Vật
+                                liệu mới</span>
+                            <h4
+                                class="text-white font-bold text-lg leading-snug group-hover:text-[#D00A2B] transition-colors">
+                                Ứng dụng bê tông siêu nhẹ trong thi công nhà phố
+                            </h4>
+                        </div>
+                    </div>
 
+                    <div
+                        class="relative group cursor-pointer overflow-hidden rounded-[2rem] border border-white/5 bg-[#14161A] p-6 flex flex-col justify-between reveal-right">
+                        <div class="w-full aspect-video rounded-xl overflow-hidden mb-6">
+                            <img src="assets/images/new-2.jpg"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        </div>
+                        <div>
+                            <span
+                                class="text-[#C5A059] text-[9px] font-black uppercase tracking-widest block mb-3">Minimalism</span>
+                            <h4
+                                class="text-white font-bold text-lg leading-snug group-hover:text-[#D00A2B] transition-colors">
+                                Tại sao tối giản vẫn là lựa chọn số 1 của chủ đầu tư?
+                            </h4>
+                        </div>
                     </div>
 
                 </div>

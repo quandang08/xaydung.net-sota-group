@@ -2,6 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0C10;
+}
+::-webkit-scrollbar-thumb {
+  background: #C5A059;
+  border-radius: 10px;
+}
+
 .sticky-active {
   position: fixed !important;
   top: 0;
@@ -29,6 +52,11 @@
 .swiper-pagination-bullet-active {
     background: #ffffff !important;
     opacity: 1 !important;
+}
+
+.benefit-card {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
 }
 
 .runner {
