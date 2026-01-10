@@ -66,7 +66,7 @@ function initLibraries() {
   initBenefitSectionAnimations();
   initAdvantageSectionAnimations();
   initNewsSectionAnimations();
-  initSectionBackgroundAnimations();
+  // initSectionBackgroundAnimations();
   initButtonReveal();
 
   if (typeof AOS !== "undefined") {
