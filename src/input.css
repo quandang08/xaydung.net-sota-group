@@ -2,7 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-html.lenis, html.lenis body {
+@font-face {
+  font-family: "General Sans";
+  src: url("../assets/fonts/Satoshi-Variable.woff2") format("woff2-variations");
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+html.lenis,
+html.lenis body {
   height: auto;
 }
 
@@ -18,11 +27,17 @@ html.lenis, html.lenis body {
   width: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: #0A0C10;
+  background: #0a0c10;
 }
 ::-webkit-scrollbar-thumb {
-  background: #C5A059;
+  background: #c5a059;
   border-radius: 10px;
+}
+
+body {
+  font-family: 'Satoshi', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .sticky-active {
@@ -45,13 +60,13 @@ html.lenis, html.lenis body {
 }
 
 .swiper-pagination-bullet {
-    background: #ffffff !important;
-    opacity: 0.5;
+  background: #ffffff !important;
+  opacity: 0.5;
 }
 
 .swiper-pagination-bullet-active {
-    background: #ffffff !important;
-    opacity: 1 !important;
+  background: #ffffff !important;
+  opacity: 1 !important;
 }
 
 .benefit-card {

@@ -19,6 +19,10 @@ module.exports = {
       "ipad-max": { max: "820px" },
     },
     extend: {
+      fontFamily: {
+        // 'sans': ['General Sans', 'sans-serif'], 
+        'sans': ['Satoshi', 'sans-serif'],
+      },
       colors: {
         "xd-yellow": "#F2B900",
         "xd-dark": "#1A1A1A",
