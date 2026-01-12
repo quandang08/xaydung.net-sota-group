@@ -57,6 +57,7 @@ function initUI() {
  */
 function initLibraries() {
   initSmoothScroll();
+  initContactSidebarScroll();
   initScrollReveal();
   initTextTypewriter();
   initStickyNav();
@@ -770,6 +771,26 @@ function initSmoothScroll() {
 
   // 4. Tắt làm mịn lag của GSAP để không xung đột với Lenis
   gsap.ticker.lagSmoothing(0);
+}
+
+/**
+ * Quản lý hiệu ứng ẩn/hiện thanh Sidebar liên hệ khi cuộn trang
+ * @param {Object} lenis - Instance của Lenis scroll
+ */
+function initContactSidebarScroll() {
+  const sidebar = document.querySelector(".contact-sidebar");
+
+  // console.log("Tìm thấy Sidebar chưa:", sidebar);
+
+  if (!sidebar || !lenis) return;
+
+  lenis.on("scroll", ({ direction }) => {
+    if (direction === 1) {
+      gsap.to(sidebar, { x: "75%", opacity: 0.5, duration: 0.5 });
+    } else {
+      gsap.to(sidebar, { x: "0%", opacity: 1, duration: 0.5 });
+    }
+  });
 }
 
 window.addEventListener("load", () => {
